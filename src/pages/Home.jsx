@@ -126,7 +126,7 @@ export default function Home({ onOpenModal }) {
       location: "East Coast Highway Corridor",
       value: "$145 Million",
       span: "1.4 km Total Span",
-      image: "https://images.unsplash.com/photo-1545558014-8692077e9b5c?auto=format&fit=crop&w=1200&q=80",
+      image: "/images/bridge.jpg",
       description: "Dual-tower cable-stayed bridge built over deep river channel using 600T crawler cranes.",
     },
     {

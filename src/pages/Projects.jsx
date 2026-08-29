@@ -30,7 +30,7 @@ export default function Projects({ onOpenModal }) {
       value: "$145 Million",
       timeline: "2023 - 2025",
       client: "State Department of Transportation",
-      image: "https://images.unsplash.com/photo-1545558014-8692077e9b5c?auto=format&fit=crop&w=1200&q=80",
+      image: "/images/bridge.jpg",
       description: "Dual-tower cable-stayed bridge spanning 1.4 km over a deep shipping channel. Required heavy marine foundation piling and high-tensile stay-cable tensioning.",
       highlights: [
         "1,400m Total Span Length",

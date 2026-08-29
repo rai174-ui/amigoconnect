@@ -102,9 +102,9 @@ export default function Services({ onOpenModal }) {
             <div className="lg:col-span-6">
               <div className="rounded-2xl overflow-hidden shadow-2xl border border-slate-800">
                 <img
-                  src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?auto=format&fit=crop&w=1200&q=80"
-                  alt="Bridge Construction Site by Amigo Connect"
-                  className="w-full h-[420px] object-cover"
+                  src="/images/bridge.jpg"
+                  alt="Bridge & Civil Construction Site by Amigo Connect"
+                  className="w-full h-[420px] object-cover object-center"
                 />
               </div>
             </div>
