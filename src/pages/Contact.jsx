@@ -31,7 +31,7 @@ export default function Contact({ onOpenModal }) {
     phone: '',
     company: '',
     preferredDate: '',
-    preferredTime: '10:00 AM EST',
+    preferredTime: '10:00 AM IST',
     meetingTopic: 'EPC Project Consultation',
     notes: '',
   });
@@ -96,9 +96,9 @@ export default function Contact({ onOpenModal }) {
                   </div>
                   <div>
                     <h4 className="text-base font-bold text-white font-heading">HQ Address</h4>
-                    <p className="text-xs text-slate-300 mt-1">
-                      100 Industrial Parkway, EPC Tower, Suite 500<br />
-                      North America Infra District
+                    <p className="text-xs text-slate-300 mt-1 leading-relaxed">
+                      3801, Ashoka Enclave CGHS Ltd.,<br />
+                      SECTOR 11, Dwarka, New Delhi-110078, India
                     </p>
                   </div>
                 </div>
@@ -132,8 +132,8 @@ export default function Contact({ onOpenModal }) {
 
               {/* Map Placeholder Graphic */}
               <div className="p-6 bg-slate-900 rounded-2xl border border-slate-800 text-center space-y-3">
-                <div className="w-full h-40 bg-slate-950 rounded-xl border border-slate-800 flex items-center justify-center text-slate-500 text-xs font-mono">
-                  [ Interactive HQ Geo-Coordinates Map ]
+                <div className="w-full h-40 bg-slate-950 rounded-xl border border-slate-800 flex items-center justify-center text-slate-400 text-xs font-mono p-4">
+                  📍 3801, Ashoka Enclave CGHS Ltd., SECTOR 11, Dwarka, New Delhi-110078
                 </div>
                 <div className="text-xs text-slate-400 flex items-center justify-center space-x-2">
                   <ShieldCheck className="w-4 h-4 text-sky-400" />
@@ -237,10 +237,10 @@ export default function Contact({ onOpenModal }) {
                             onChange={(e) => setMeetingData({ ...meetingData, preferredTime: e.target.value })}
                             className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-sky-400"
                           >
-                            <option value="09:00 AM EST">09:00 AM EST</option>
-                            <option value="11:00 AM EST">11:00 AM EST</option>
-                            <option value="02:00 PM EST">02:00 PM EST</option>
-                            <option value="04:00 PM EST">04:00 PM EST</option>
+                            <option value="10:00 AM IST">10:00 AM IST</option>
+                            <option value="12:00 PM IST">12:00 PM IST</option>
+                            <option value="03:00 PM IST">03:00 PM IST</option>
+                            <option value="05:00 PM IST">05:00 PM IST</option>
                           </select>
                         </div>
                       </div>

@@ -117,7 +117,7 @@ export default function Footer({ onOpenModal }) {
             <div className="space-y-3 text-sm">
               <div className="flex items-start space-x-3">
                 <MapPin className="w-4 h-4 text-sky-400 shrink-0 mt-1" />
-                <span className="text-slate-300">100 Industrial Parkway, EPC Tower, Suite 500</span>
+                <span className="text-slate-300">3801, Ashoka Enclave CGHS Ltd., SECTOR 11, Dwarka, New Delhi-110078, India</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-4 h-4 text-sky-400 shrink-0" />

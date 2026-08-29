@@ -42,14 +42,14 @@ export default function Header({ onOpenModal }) {
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-6">
             <span className="flex items-center space-x-1.5">
-              <MapPin className="w-3.5 h-3.5 text-sky-400" />
-              <span>EPC Tower, Suite 500, Industrial Zone</span>
+              <MapPin className="w-3.5 h-3.5 text-sky-400 shrink-0" />
+              <span>3801, Ashoka Enclave CGHS Ltd., SECTOR 11, Dwarka, New Delhi-110078, India</span>
             </span>
-            <a href="tel:+919971299631" className="flex items-center space-x-1.5 hover:text-white transition-colors">
+            <a href="tel:+919971299631" className="flex items-center space-x-1.5 hover:text-white transition-colors shrink-0">
               <Phone className="w-3.5 h-3.5 text-sky-400" />
               <span>+91 99712 99631</span>
             </a>
-            <a href="mailto:info@amigoconnect.com" className="flex items-center space-x-1.5 hover:text-white transition-colors">
+            <a href="mailto:info@amigoconnect.com" className="flex items-center space-x-1.5 hover:text-white transition-colors shrink-0">
               <Mail className="w-3.5 h-3.5 text-sky-400" />
               <span>info@amigoconnect.com</span>
             </a>
@@ -58,10 +58,10 @@ export default function Header({ onOpenModal }) {
           <div className="flex items-center space-x-4">
             <span className="flex items-center space-x-1.5 text-red-400 bg-red-500/10 px-2.5 py-0.5 rounded-full border border-red-500/20">
               <ShieldAlert className="w-3 h-3 animate-pulse" />
-              <span className="font-medium">24/7 Heavy Equipment Dispatch Line Active</span>
+              <span className="font-medium">24/7 Dispatch Desk Active</span>
             </span>
             <span className="text-slate-700">|</span>
-            <span className="text-sky-300 font-semibold">ISO 9001:2015 & ISO 45001</span>
+            <span className="text-sky-300 font-semibold">ISO Certified</span>
           </div>
         </div>
       </div>
@@ -301,7 +301,7 @@ export default function Header({ onOpenModal }) {
               to="/contact"
               onClick={closeMobileMenu}
               className={`block px-4 py-2.5 rounded-lg text-base font-semibold ${
-                isActive('/contact') ? 'bg-red-500/20 text-red-400' : 'text-slate-200 hover:bg-slate-900'
+                isActive('/contact') ? 'bg-red-500/20 text-slate-400' : 'text-slate-200 hover:bg-slate-900'
               }`}
             >
               Contact Us
