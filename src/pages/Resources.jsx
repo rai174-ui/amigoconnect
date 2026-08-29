@@ -115,10 +115,10 @@ export default function Resources({ onOpenModal }) {
     <div className="min-h-screen bg-slate-950 text-slate-100 pt-24 pb-16">
       
       {/* Banner */}
-      <section className="bg-slate-900 py-16 border-b border-slate-800">
+      <section className="bg-slate-900 py-16 border-b border-slate-850">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl space-y-4">
-            <span className="text-xs font-bold text-amber-400 uppercase tracking-widest bg-amber-500/10 px-3 py-1 rounded-md border border-amber-500/20">
+            <span className="text-xs font-bold text-sky-400 uppercase tracking-widest bg-sky-500/10 px-3 py-1 rounded-md border border-sky-500/20">
               Fleet & Technical Downloads
             </span>
             <h1 className="text-4xl sm:text-5xl font-black text-white font-heading tracking-tight">
@@ -146,7 +146,7 @@ export default function Resources({ onOpenModal }) {
               <button
                 onClick={() => setFleetCategory('all')}
                 className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all ${
-                  fleetCategory === 'all' ? 'bg-amber-500 text-slate-950' : 'text-slate-400 hover:text-white'
+                  fleetCategory === 'all' ? 'bg-red-600 text-white' : 'text-slate-400 hover:text-white'
                 }`}
               >
                 All Fleet
@@ -154,7 +154,7 @@ export default function Resources({ onOpenModal }) {
               <button
                 onClick={() => setFleetCategory('cranes')}
                 className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all ${
-                  fleetCategory === 'cranes' ? 'bg-amber-500 text-slate-950' : 'text-slate-400 hover:text-white'
+                  fleetCategory === 'cranes' ? 'bg-red-600 text-white' : 'text-slate-400 hover:text-white'
                 }`}
               >
                 Cranes
@@ -162,7 +162,7 @@ export default function Resources({ onOpenModal }) {
               <button
                 onClick={() => setFleetCategory('earthmoving')}
                 className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all ${
-                  fleetCategory === 'earthmoving' ? 'bg-amber-500 text-slate-950' : 'text-slate-400 hover:text-white'
+                  fleetCategory === 'earthmoving' ? 'bg-red-600 text-white' : 'text-slate-400 hover:text-white'
                 }`}
               >
                 Earthmoving
@@ -170,7 +170,7 @@ export default function Resources({ onOpenModal }) {
               <button
                 onClick={() => setFleetCategory('haulage')}
                 className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all ${
-                  fleetCategory === 'haulage' ? 'bg-amber-500 text-slate-950' : 'text-slate-400 hover:text-white'
+                  fleetCategory === 'haulage' ? 'bg-red-600 text-white' : 'text-slate-400 hover:text-white'
                 }`}
               >
                 Haulers
@@ -180,10 +180,10 @@ export default function Resources({ onOpenModal }) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredFleet.map((machine) => (
-              <div key={machine.id} className="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden shadow-xl hover:border-amber-500/50 transition-all">
+              <div key={machine.id} className="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden shadow-xl hover:border-red-500/50 transition-all">
                 <div className="relative h-56">
                   <img src={machine.image} alt={machine.name} className="w-full h-full object-cover" />
-                  <span className="absolute top-4 left-4 px-3 py-1 bg-slate-950/90 text-amber-400 text-xs font-bold rounded-lg border border-slate-800">
+                  <span className="absolute top-4 left-4 px-3 py-1 bg-slate-950/90 text-sky-400 text-xs font-bold rounded-lg border border-slate-800">
                     {machine.categoryName}
                   </span>
                 </div>
@@ -194,7 +194,7 @@ export default function Resources({ onOpenModal }) {
                   <div className="space-y-1.5 text-xs text-slate-300">
                     <div className="flex justify-between">
                       <span className="text-slate-400">Capacity:</span>
-                      <span className="text-amber-400 font-bold">{machine.capacity}</span>
+                      <span className="text-red-400 font-bold">{machine.capacity}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-slate-400">Reach / Engine:</span>
@@ -209,7 +209,7 @@ export default function Resources({ onOpenModal }) {
                   <div className="pt-3 border-t border-slate-800 space-y-1">
                     {machine.specs.map((spec, i) => (
                       <div key={i} className="flex items-center space-x-2 text-[11px] text-slate-400">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-sky-400 shrink-0" />
                         <span>{spec}</span>
                       </div>
                     ))}
@@ -218,7 +218,7 @@ export default function Resources({ onOpenModal }) {
                   <div className="pt-2">
                     <button
                       onClick={() => onOpenModal('quote')}
-                      className="w-full py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs rounded-xl shadow transition-colors"
+                      className="w-full py-2.5 bg-red-600 hover:bg-red-500 text-white font-bold text-xs rounded-xl shadow transition-colors border border-red-400/30"
                     >
                       Reserve / Request Rate
                     </button>
@@ -232,11 +232,11 @@ export default function Resources({ onOpenModal }) {
       </section>
 
       {/* Technical Brochures Download Section */}
-      <section id="brochures" className="py-20 bg-slate-900 border-t border-slate-800">
+      <section id="brochures" className="py-20 bg-slate-900 border-t border-slate-850">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-            <span className="text-xs font-bold text-amber-400 uppercase tracking-widest bg-amber-500/10 px-3 py-1 rounded-md border border-amber-500/20">
+            <span className="text-xs font-bold text-sky-400 uppercase tracking-widest bg-sky-500/10 px-3 py-1 rounded-md border border-sky-500/20">
               Download Center
             </span>
             <h2 className="text-3xl font-extrabold text-white font-heading">
@@ -249,8 +249,8 @@ export default function Resources({ onOpenModal }) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {brochures.map((doc) => (
-              <div key={doc.id} className="p-6 bg-slate-950 rounded-2xl border border-slate-800 flex items-start space-x-4 hover:border-amber-500/40 transition-colors">
-                <div className="p-3.5 bg-amber-500/10 text-amber-400 rounded-xl shrink-0">
+              <div key={doc.id} className="p-6 bg-slate-950 rounded-2xl border border-slate-800 flex items-start space-x-4 hover:border-sky-500/40 transition-colors">
+                <div className="p-3.5 bg-sky-500/10 text-sky-400 rounded-xl shrink-0">
                   <FileText className="w-6 h-6" />
                 </div>
                 <div className="flex-1 space-y-1">
@@ -264,7 +264,7 @@ export default function Resources({ onOpenModal }) {
                 </div>
                 <button
                   onClick={() => alert(`Downloading ${doc.title}...`)}
-                  className="p-2.5 bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-amber-400 rounded-xl border border-slate-800 transition-colors"
+                  className="p-2.5 bg-slate-900 hover:bg-red-600 hover:text-white text-sky-400 rounded-xl border border-slate-800 transition-colors"
                   title="Download File"
                 >
                   <Download className="w-4 h-4" />

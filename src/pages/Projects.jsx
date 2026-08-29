@@ -15,7 +15,7 @@ import {
 
 export default function Projects({ onOpenModal }) {
   const [activeTab, setActiveTab] = useState('all');
-  const [statusFilter, setStatusFilter] = useState('all'); // 'all', 'ongoing', 'completed'
+  const [statusFilter, setStatusFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedProject, setSelectedProject] = useState(null);
 
@@ -151,10 +151,10 @@ export default function Projects({ onOpenModal }) {
     <div className="min-h-screen bg-slate-950 text-slate-100 pt-24 pb-16">
       
       {/* Header Banner */}
-      <section className="bg-slate-900 py-16 border-b border-slate-800">
+      <section className="bg-slate-900 py-16 border-b border-slate-850">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl space-y-4">
-            <span className="text-xs font-bold text-amber-400 uppercase tracking-widest bg-amber-500/10 px-3 py-1 rounded-md border border-amber-500/20">
+            <span className="text-xs font-bold text-sky-400 uppercase tracking-widest bg-sky-500/10 px-3 py-1 rounded-md border border-sky-500/20">
               EPC Project Portfolio
             </span>
             <h1 className="text-4xl sm:text-5xl font-black text-white font-heading tracking-tight">
@@ -177,7 +177,7 @@ export default function Projects({ onOpenModal }) {
               <button
                 onClick={() => setActiveTab('all')}
                 className={`px-4 py-2 text-xs font-bold rounded-lg whitespace-nowrap transition-all ${
-                  activeTab === 'all' ? 'bg-amber-500 text-slate-950 shadow-md' : 'text-slate-400 hover:text-white'
+                  activeTab === 'all' ? 'bg-red-600 text-white shadow-md' : 'text-slate-400 hover:text-white'
                 }`}
               >
                 All Verticals
@@ -185,7 +185,7 @@ export default function Projects({ onOpenModal }) {
               <button
                 onClick={() => setActiveTab('bridge')}
                 className={`px-4 py-2 text-xs font-bold rounded-lg whitespace-nowrap transition-all ${
-                  activeTab === 'bridge' ? 'bg-amber-500 text-slate-950 shadow-md' : 'text-slate-400 hover:text-white'
+                  activeTab === 'bridge' ? 'bg-red-600 text-white shadow-md' : 'text-slate-400 hover:text-white'
                 }`}
               >
                 Bridge Construction
@@ -193,7 +193,7 @@ export default function Projects({ onOpenModal }) {
               <button
                 onClick={() => setActiveTab('windmill')}
                 className={`px-4 py-2 text-xs font-bold rounded-lg whitespace-nowrap transition-all ${
-                  activeTab === 'windmill' ? 'bg-amber-500 text-slate-950 shadow-md' : 'text-slate-400 hover:text-white'
+                  activeTab === 'windmill' ? 'bg-red-600 text-white shadow-md' : 'text-slate-400 hover:text-white'
                 }`}
               >
                 Windmill Fabrication
@@ -205,7 +205,7 @@ export default function Projects({ onOpenModal }) {
               <select
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value)}
-                className="px-3.5 py-2 bg-slate-900 border border-slate-800 rounded-xl text-xs text-white focus:outline-none focus:border-amber-500"
+                className="px-3.5 py-2 bg-slate-900 border border-slate-800 rounded-xl text-xs text-white focus:outline-none focus:border-sky-400"
               >
                 <option value="all">All Statuses</option>
                 <option value="completed">Completed Works</option>
@@ -219,7 +219,7 @@ export default function Projects({ onOpenModal }) {
                   placeholder="Search project name or site..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-3.5 py-2 bg-slate-900 border border-slate-800 rounded-xl text-xs text-white focus:outline-none focus:border-amber-500"
+                  className="w-full pl-9 pr-3.5 py-2 bg-slate-900 border border-slate-800 rounded-xl text-xs text-white focus:outline-none focus:border-sky-400"
                 />
               </div>
             </div>
@@ -242,7 +242,7 @@ export default function Projects({ onOpenModal }) {
                 <div
                   key={project.id}
                   onClick={() => setSelectedProject(project)}
-                  className="cursor-pointer bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 hover:border-amber-500/60 transition-all duration-300 shadow-xl group hover:-translate-y-1"
+                  className="cursor-pointer bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 hover:border-red-500/60 transition-all duration-300 shadow-xl group hover:-translate-y-1"
                 >
                   <div className="relative h-60 overflow-hidden">
                     <img
@@ -253,13 +253,13 @@ export default function Projects({ onOpenModal }) {
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
                     
                     <div className="absolute top-4 left-4 flex space-x-2">
-                      <span className="px-3 py-1 bg-slate-950/90 text-amber-400 text-xs font-bold rounded-lg border border-slate-800">
+                      <span className="px-3 py-1 bg-slate-950/90 text-sky-400 text-xs font-bold rounded-lg border border-slate-800">
                         {project.categoryName}
                       </span>
                       <span className={`px-2.5 py-1 text-xs font-bold rounded-lg border ${
                         project.status === 'completed' 
                           ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' 
-                          : 'bg-amber-500/20 text-amber-400 border-amber-500/30 animate-pulse'
+                          : 'bg-red-500/20 text-red-400 border-red-500/30 animate-pulse'
                       }`}>
                         {project.status === 'completed' ? 'Completed' : 'Ongoing'}
                       </span>
@@ -267,7 +267,7 @@ export default function Projects({ onOpenModal }) {
                   </div>
 
                   <div className="p-6 space-y-3">
-                    <h3 className="text-lg font-bold text-white font-heading group-hover:text-amber-400 transition-colors">
+                    <h3 className="text-lg font-bold text-white font-heading group-hover:text-red-400 transition-colors">
                       {project.title}
                     </h3>
                     <p className="text-xs text-slate-400 line-clamp-2">
@@ -276,10 +276,10 @@ export default function Projects({ onOpenModal }) {
 
                     <div className="pt-3 border-t border-slate-800 flex justify-between items-center text-xs text-slate-300">
                       <span className="flex items-center space-x-1">
-                        <MapPin className="w-3.5 h-3.5 text-amber-500" />
+                        <MapPin className="w-3.5 h-3.5 text-sky-400" />
                         <span>{project.location}</span>
                       </span>
-                      <span className="font-bold text-amber-400">{project.value}</span>
+                      <span className="font-bold text-red-400">{project.value}</span>
                     </div>
                   </div>
                 </div>
@@ -292,8 +292,8 @@ export default function Projects({ onOpenModal }) {
 
       {/* Project Spec Modal */}
       {selectedProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
-          <div className="relative w-full max-w-3xl bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md">
+          <div className="relative w-full max-w-3xl bg-slate-900 border border-slate-750 rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto">
             <div className="relative h-64">
               <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
@@ -307,7 +307,7 @@ export default function Projects({ onOpenModal }) {
 
             <div className="p-6 space-y-6">
               <div>
-                <span className="text-xs font-bold text-amber-400 uppercase">{selectedProject.categoryName}</span>
+                <span className="text-xs font-bold text-sky-400 uppercase">{selectedProject.categoryName}</span>
                 <h3 className="text-2xl font-bold text-white font-heading mt-1">{selectedProject.title}</h3>
                 <p className="text-sm text-slate-300 mt-2">{selectedProject.description}</p>
               </div>
@@ -323,7 +323,7 @@ export default function Projects({ onOpenModal }) {
                 </div>
                 <div>
                   <span className="text-slate-400 block">Contract Value</span>
-                  <strong className="text-amber-400 font-bold">{selectedProject.value}</strong>
+                  <strong className="text-red-400 font-bold">{selectedProject.value}</strong>
                 </div>
                 <div>
                   <span className="text-slate-400 block">Timeline</span>
@@ -336,7 +336,7 @@ export default function Projects({ onOpenModal }) {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {selectedProject.highlights.map((h, i) => (
                     <div key={i} className="flex items-center space-x-2 text-xs text-slate-300">
-                      <CheckCircle2 className="w-4 h-4 text-amber-500 shrink-0" />
+                      <CheckCircle2 className="w-4 h-4 text-red-500 shrink-0" />
                       <span>{h}</span>
                     </div>
                   ))}
@@ -346,13 +346,13 @@ export default function Projects({ onOpenModal }) {
               <div className="pt-4 flex justify-between items-center border-t border-slate-800">
                 <button
                   onClick={() => setSelectedProject(null)}
-                  className="px-5 py-2 bg-slate-800 text-slate-300 text-xs font-semibold rounded-lg"
+                  className="px-5 py-2 bg-slate-800 text-slate-300 text-xs font-semibold rounded-xl"
                 >
                   Close Window
                 </button>
                 <button
                   onClick={() => { setSelectedProject(null); onOpenModal('quote'); }}
-                  className="px-6 py-2 bg-amber-500 text-slate-950 font-bold text-xs rounded-lg shadow-lg"
+                  className="px-6 py-2 bg-red-600 text-white font-bold text-xs rounded-xl shadow-lg border border-red-400/30"
                 >
                   Request Similar Project Estimate
                 </button>

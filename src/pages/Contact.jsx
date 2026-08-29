@@ -16,7 +16,7 @@ import {
 
 export default function Contact({ onOpenModal }) {
   const location = useLocation();
-  const [activeTab, setActiveTab] = useState('meeting'); // 'meeting' or 'vendor'
+  const [activeTab, setActiveTab] = useState('meeting');
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
@@ -61,10 +61,10 @@ export default function Contact({ onOpenModal }) {
     <div className="min-h-screen bg-slate-950 text-slate-100 pt-24 pb-16">
       
       {/* Banner */}
-      <section className="bg-slate-900 py-16 border-b border-slate-800">
+      <section className="bg-slate-900 py-16 border-b border-slate-850">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl space-y-4">
-            <span className="text-xs font-bold text-amber-400 uppercase tracking-widest bg-amber-500/10 px-3 py-1 rounded-md border border-amber-500/20">
+            <span className="text-xs font-bold text-sky-400 uppercase tracking-widest bg-sky-500/10 px-3 py-1 rounded-md border border-sky-500/20">
               Get In Touch
             </span>
             <h1 className="text-4xl sm:text-5xl font-black text-white font-heading tracking-tight">
@@ -91,7 +91,7 @@ export default function Contact({ onOpenModal }) {
 
               <div className="space-y-4">
                 <div className="p-6 bg-slate-900 rounded-2xl border border-slate-800 flex items-start space-x-4">
-                  <div className="p-3 bg-amber-500/10 text-amber-400 rounded-xl shrink-0">
+                  <div className="p-3 bg-red-500/10 text-red-500 rounded-xl shrink-0">
                     <MapPin className="w-6 h-6" />
                   </div>
                   <div>
@@ -104,7 +104,7 @@ export default function Contact({ onOpenModal }) {
                 </div>
 
                 <div className="p-6 bg-slate-900 rounded-2xl border border-slate-800 flex items-start space-x-4">
-                  <div className="p-3 bg-amber-500/10 text-amber-400 rounded-xl shrink-0">
+                  <div className="p-3 bg-sky-500/10 text-sky-400 rounded-xl shrink-0">
                     <Phone className="w-6 h-6" />
                   </div>
                   <div>
@@ -117,7 +117,7 @@ export default function Contact({ onOpenModal }) {
                 </div>
 
                 <div className="p-6 bg-slate-900 rounded-2xl border border-slate-800 flex items-start space-x-4">
-                  <div className="p-3 bg-amber-500/10 text-amber-400 rounded-xl shrink-0">
+                  <div className="p-3 bg-red-500/10 text-red-500 rounded-xl shrink-0">
                     <Mail className="w-6 h-6" />
                   </div>
                   <div>
@@ -136,13 +136,13 @@ export default function Contact({ onOpenModal }) {
                   [ Interactive HQ Geo-Coordinates Map ]
                 </div>
                 <div className="text-xs text-slate-400 flex items-center justify-center space-x-2">
-                  <ShieldCheck className="w-4 h-4 text-amber-500" />
+                  <ShieldCheck className="w-4 h-4 text-sky-400" />
                   <span>Visitor Access Requires Prior Security Clearance</span>
                 </div>
               </div>
             </div>
 
-            {/* Right Interactive Form (Schedule a Meeting / Vendor Registration) */}
+            {/* Right Interactive Form */}
             <div className="lg:col-span-7">
               <div className="bg-slate-900 rounded-3xl border border-slate-800 overflow-hidden shadow-2xl">
                 
@@ -152,7 +152,7 @@ export default function Contact({ onOpenModal }) {
                     onClick={() => { setActiveTab('meeting'); setSubmitted(false); }}
                     className={`flex-1 py-4 text-sm font-bold transition-all border-b-2 ${
                       activeTab === 'meeting'
-                        ? 'border-amber-500 text-amber-400 bg-slate-900'
+                        ? 'border-red-500 text-red-400 bg-slate-900'
                         : 'border-transparent text-slate-400 hover:text-slate-200'
                     }`}
                   >
@@ -162,7 +162,7 @@ export default function Contact({ onOpenModal }) {
                     onClick={() => { setActiveTab('vendor'); setSubmitted(false); }}
                     className={`flex-1 py-4 text-sm font-bold transition-all border-b-2 ${
                       activeTab === 'vendor'
-                        ? 'border-amber-500 text-amber-400 bg-slate-900'
+                        ? 'border-red-500 text-red-400 bg-slate-900'
                         : 'border-transparent text-slate-400 hover:text-slate-200'
                     }`}
                   >
@@ -173,19 +173,19 @@ export default function Contact({ onOpenModal }) {
                 <div className="p-8">
                   {submitted ? (
                     <div className="py-16 text-center space-y-4">
-                      <div className="inline-flex p-4 bg-emerald-500/20 text-emerald-400 rounded-full">
+                      <div className="inline-flex p-4 bg-emerald-500/20 text-emerald-400 rounded-full border border-emerald-500/30">
                         <CheckCircle2 className="w-12 h-12" />
                       </div>
                       <h3 className="text-2xl font-bold text-white font-heading">
                         {activeTab === 'meeting' ? 'Meeting Scheduled!' : 'Vendor Application Received!'}
                       </h3>
                       <p className="text-slate-300 text-sm max-w-md mx-auto">
-                        Thank you for submitting to <strong className="text-amber-400">Amigo Connect</strong>. Confirmation details have been dispatched to your corporate email.
+                        Thank you for submitting to <strong className="text-red-400">Amigo Connect</strong>. Confirmation details have been dispatched to your corporate email.
                       </p>
                       <div className="pt-4">
                         <button
                           onClick={() => setSubmitted(false)}
-                          className="px-6 py-2.5 bg-amber-500 text-slate-950 font-bold text-sm rounded-xl shadow"
+                          className="px-6 py-2.5 bg-red-600 text-white font-bold text-sm rounded-xl shadow border border-red-400/30"
                         >
                           Submit Another Entry
                         </button>
@@ -203,7 +203,7 @@ export default function Contact({ onOpenModal }) {
                             placeholder="John Vance"
                             value={meetingData.name}
                             onChange={(e) => setMeetingData({ ...meetingData, name: e.target.value })}
-                            className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-amber-500"
+                            className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-sky-400"
                           />
                         </div>
                         <div>
@@ -214,7 +214,7 @@ export default function Contact({ onOpenModal }) {
                             placeholder="john@infrastructure.com"
                             value={meetingData.email}
                             onChange={(e) => setMeetingData({ ...meetingData, email: e.target.value })}
-                            className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-amber-500"
+                            className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-sky-400"
                           />
                         </div>
                       </div>
@@ -227,7 +227,7 @@ export default function Contact({ onOpenModal }) {
                             required
                             value={meetingData.preferredDate}
                             onChange={(e) => setMeetingData({ ...meetingData, preferredDate: e.target.value })}
-                            className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-amber-500"
+                            className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-sky-400"
                           />
                         </div>
                         <div>
@@ -235,7 +235,7 @@ export default function Contact({ onOpenModal }) {
                           <select
                             value={meetingData.preferredTime}
                             onChange={(e) => setMeetingData({ ...meetingData, preferredTime: e.target.value })}
-                            className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-amber-500"
+                            className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-sky-400"
                           >
                             <option value="09:00 AM EST">09:00 AM EST</option>
                             <option value="11:00 AM EST">11:00 AM EST</option>
@@ -252,13 +252,13 @@ export default function Contact({ onOpenModal }) {
                           placeholder="Provide brief context regarding crane rental, bridge civil tender, or steel fabrication project..."
                           value={meetingData.notes}
                           onChange={(e) => setMeetingData({ ...meetingData, notes: e.target.value })}
-                          className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-amber-500"
+                          className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-sky-400"
                         ></textarea>
                       </div>
 
                       <button
                         type="submit"
-                        className="w-full py-3 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-sm rounded-xl shadow-lg transition-colors flex items-center justify-center space-x-2"
+                        className="w-full py-3 bg-red-600 hover:bg-red-500 text-white font-bold text-sm rounded-xl shadow-lg transition-colors flex items-center justify-center space-x-2 border border-red-400/30"
                       >
                         <span>Confirm Calendar Reservation</span>
                         <Send className="w-4 h-4" />
@@ -276,7 +276,7 @@ export default function Contact({ onOpenModal }) {
                             placeholder="Apex Steel Mills Corp"
                             value={vendorData.companyName}
                             onChange={(e) => setVendorData({ ...vendorData, companyName: e.target.value })}
-                            className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-amber-500"
+                            className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-sky-400"
                           />
                         </div>
                         <div>
@@ -287,7 +287,7 @@ export default function Contact({ onOpenModal }) {
                             placeholder="Sarah Jenkins"
                             value={vendorData.contactPerson}
                             onChange={(e) => setVendorData({ ...vendorData, contactPerson: e.target.value })}
-                            className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-amber-500"
+                            className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-sky-400"
                           />
                         </div>
                       </div>
@@ -298,7 +298,7 @@ export default function Contact({ onOpenModal }) {
                           <select
                             value={vendorData.vendorCategory}
                             onChange={(e) => setVendorData({ ...vendorData, vendorCategory: e.target.value })}
-                            className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-amber-500"
+                            className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-sky-400"
                           >
                             <option value="Raw Material / Steel Supplier">Raw Material / Structural Steel Supplier</option>
                             <option value="Subcontractor (Civil Works)">Subcontractor (Civil Works)</option>
@@ -313,7 +313,7 @@ export default function Contact({ onOpenModal }) {
                             placeholder="ISO 9001, AISC, AWS D1.1"
                             value={vendorData.certifications}
                             onChange={(e) => setVendorData({ ...vendorData, certifications: e.target.value })}
-                            className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-amber-500"
+                            className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-sky-400"
                           />
                         </div>
                       </div>
@@ -325,13 +325,13 @@ export default function Contact({ onOpenModal }) {
                           placeholder="https://www.vendorcompany.com"
                           value={vendorData.companyProfileUrl}
                           onChange={(e) => setVendorData({ ...vendorData, companyProfileUrl: e.target.value })}
-                          className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-amber-500"
+                          className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-sky-400"
                         />
                       </div>
 
                       <button
                         type="submit"
-                        className="w-full py-3 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-sm rounded-xl shadow-lg transition-colors flex items-center justify-center space-x-2"
+                        className="w-full py-3 bg-red-600 hover:bg-red-500 text-white font-bold text-sm rounded-xl shadow-lg transition-colors flex items-center justify-center space-x-2 border border-red-400/30"
                       >
                         <span>Register as Certified Vendor</span>
                         <Briefcase className="w-4 h-4" />

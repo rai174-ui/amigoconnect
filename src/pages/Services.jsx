@@ -29,10 +29,10 @@ export default function Services({ onOpenModal }) {
     <div className="min-h-screen bg-slate-950 text-slate-100 pt-24 pb-16">
       
       {/* Hero Header */}
-      <section className="bg-slate-900 py-16 border-b border-slate-800">
+      <section className="bg-slate-900 py-16 border-b border-slate-850">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl space-y-4">
-            <span className="text-xs font-bold text-amber-400 uppercase tracking-widest bg-amber-500/10 px-3 py-1 rounded-md border border-amber-500/20">
+            <span className="text-xs font-bold text-sky-400 uppercase tracking-widest bg-sky-500/10 px-3 py-1 rounded-md border border-sky-500/20">
               EPC Core Capabilities
             </span>
             <h1 className="text-4xl sm:text-5xl font-black text-white font-heading tracking-tight">
@@ -46,12 +46,12 @@ export default function Services({ onOpenModal }) {
       </section>
 
       {/* ================= VERTICAL 1: BRIDGE & CIVIL CONSTRUCTION ================= */}
-      <section id="bridge" className="py-20 bg-slate-950 border-b border-slate-800">
+      <section id="bridge" className="py-20 bg-slate-950 border-b border-slate-850">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             <div className="lg:col-span-6 space-y-6">
-              <div className="inline-flex items-center space-x-2 text-amber-400 text-xs font-bold uppercase tracking-wider bg-amber-500/10 px-3 py-1 rounded-md">
+              <div className="inline-flex items-center space-x-2 text-red-400 text-xs font-bold uppercase tracking-wider bg-red-500/10 px-3 py-1 rounded-md">
                 <Anchor className="w-4 h-4" />
                 <span>Vertical 01</span>
               </div>
@@ -64,7 +64,7 @@ export default function Services({ onOpenModal }) {
 
               <div className="space-y-3 pt-2">
                 <div className="flex items-start space-x-3 p-3 bg-slate-900 rounded-xl border border-slate-800">
-                  <CheckCircle2 className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-white text-sm">Cable-Stayed & Suspension Bridges:</strong>
                     <p className="text-xs text-slate-400">High-span tower erection and stay-cable tensioning engineering.</p>
@@ -72,7 +72,7 @@ export default function Services({ onOpenModal }) {
                 </div>
 
                 <div className="flex items-start space-x-3 p-3 bg-slate-900 rounded-xl border border-slate-800">
-                  <CheckCircle2 className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-sky-400 shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-white text-sm">Marine Deep Foundation Piling:</strong>
                     <p className="text-xs text-slate-400">Large-diameter bored piles and cofferdam construction in tidal waters.</p>
@@ -80,7 +80,7 @@ export default function Services({ onOpenModal }) {
                 </div>
 
                 <div className="flex items-start space-x-3 p-3 bg-slate-900 rounded-xl border border-slate-800">
-                  <CheckCircle2 className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-white text-sm">Segmental Viaduct Launching:</strong>
                     <p className="text-xs text-slate-400">Precast concrete box girder launching gantries for rapid highway delivery.</p>
@@ -91,7 +91,7 @@ export default function Services({ onOpenModal }) {
               <div className="pt-4">
                 <button
                   onClick={() => onOpenModal('quote')}
-                  className="px-6 py-3 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-sm rounded-xl shadow-lg inline-flex items-center space-x-2"
+                  className="px-6 py-3 bg-red-600 hover:bg-red-500 text-white font-bold text-sm rounded-xl shadow-lg inline-flex items-center space-x-2 border border-red-400/30"
                 >
                   <span>Request Bridge Proposal</span>
                   <ArrowRight className="w-4 h-4" />
@@ -114,7 +114,7 @@ export default function Services({ onOpenModal }) {
       </section>
 
       {/* ================= VERTICAL 2: WINDMILL FABRICATION ================= */}
-      <section id="windmill" className="py-20 bg-slate-900 border-b border-slate-800">
+      <section id="windmill" className="py-20 bg-slate-900 border-b border-slate-850">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
@@ -129,7 +129,7 @@ export default function Services({ onOpenModal }) {
             </div>
 
             <div className="lg:col-span-6 order-1 lg:order-2 space-y-6">
-              <div className="inline-flex items-center space-x-2 text-amber-400 text-xs font-bold uppercase tracking-wider bg-amber-500/10 px-3 py-1 rounded-md">
+              <div className="inline-flex items-center space-x-2 text-sky-400 text-xs font-bold uppercase tracking-wider bg-sky-500/10 px-3 py-1 rounded-md">
                 <Wind className="w-4 h-4" />
                 <span>Vertical 02</span>
               </div>
@@ -142,7 +142,7 @@ export default function Services({ onOpenModal }) {
 
               <div className="space-y-3 pt-2">
                 <div className="flex items-start space-x-3 p-3 bg-slate-950 rounded-xl border border-slate-800">
-                  <CheckCircle2 className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-sky-400 shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-white text-sm">Wind Turbine Towers & Flanges:</strong>
                     <p className="text-xs text-slate-400">Precision rolling for 4m-8m diameter tubular steel tower sections.</p>
@@ -150,7 +150,7 @@ export default function Services({ onOpenModal }) {
                 </div>
 
                 <div className="flex items-start space-x-3 p-3 bg-slate-950 rounded-xl border border-slate-800">
-                  <CheckCircle2 className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-white text-sm">Rotor Hub & Nacelle Weldments:</strong>
                     <p className="text-xs text-slate-400">Heavy structural framing built to withstand dynamic wind load fatigue.</p>
@@ -158,7 +158,7 @@ export default function Services({ onOpenModal }) {
                 </div>
 
                 <div className="flex items-start space-x-3 p-3 bg-slate-950 rounded-xl border border-slate-800">
-                  <CheckCircle2 className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-sky-400 shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-white text-sm">Anti-Corrosion Blast & Paint:</strong>
                     <p className="text-xs text-slate-400">Multi-coat epoxy marine paint systems rated for 25-year offshore durability.</p>
@@ -169,7 +169,7 @@ export default function Services({ onOpenModal }) {
               <div className="pt-4">
                 <button
                   onClick={() => onOpenModal('quote')}
-                  className="px-6 py-3 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-sm rounded-xl shadow-lg inline-flex items-center space-x-2"
+                  className="px-6 py-3 bg-red-600 hover:bg-red-500 text-white font-bold text-sm rounded-xl shadow-lg inline-flex items-center space-x-2 border border-red-400/30"
                 >
                   <span>Request Steel Fabrication Specs</span>
                   <ArrowRight className="w-4 h-4" />
@@ -187,7 +187,7 @@ export default function Services({ onOpenModal }) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             <div className="lg:col-span-6 space-y-6">
-              <div className="inline-flex items-center space-x-2 text-amber-400 text-xs font-bold uppercase tracking-wider bg-amber-500/10 px-3 py-1 rounded-md">
+              <div className="inline-flex items-center space-x-2 text-red-400 text-xs font-bold uppercase tracking-wider bg-red-500/10 px-3 py-1 rounded-md">
                 <Truck className="w-4 h-4" />
                 <span>Vertical 03</span>
               </div>
@@ -200,7 +200,7 @@ export default function Services({ onOpenModal }) {
 
               <div className="space-y-3 pt-2">
                 <div className="flex items-start space-x-3 p-3 bg-slate-900 rounded-xl border border-slate-800">
-                  <CheckCircle2 className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-white text-sm">Crawler Cranes (50T to 800T Capacity):</strong>
                     <p className="text-xs text-slate-400">Heavy lift solutions for bridge girders and wind turbine assembly.</p>
@@ -208,7 +208,7 @@ export default function Services({ onOpenModal }) {
                 </div>
 
                 <div className="flex items-start space-x-3 p-3 bg-slate-900 rounded-xl border border-slate-800">
-                  <CheckCircle2 className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-sky-400 shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-white text-sm">Hydraulic Excavators & Earthmovers:</strong>
                     <p className="text-xs text-slate-400">20T to 90T excavation units with GPS grade-control options.</p>
@@ -216,7 +216,7 @@ export default function Services({ onOpenModal }) {
                 </div>
 
                 <div className="flex items-start space-x-3 p-3 bg-slate-900 rounded-xl border border-slate-800">
-                  <CheckCircle2 className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-white text-sm">Turnkey Operation & Maintenance:</strong>
                     <p className="text-xs text-slate-400">Supplied with NCCCO certified operators and 24/7 field mechanics.</p>
@@ -227,7 +227,7 @@ export default function Services({ onOpenModal }) {
               <div className="pt-4 flex items-center space-x-4">
                 <Link
                   to="/resources"
-                  className="px-6 py-3 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-sm rounded-xl shadow-lg inline-flex items-center space-x-2"
+                  className="px-6 py-3 bg-red-600 hover:bg-red-500 text-white font-bold text-sm rounded-xl shadow-lg inline-flex items-center space-x-2 border border-red-400/30"
                 >
                   <span>Explore Full Fleet Specs</span>
                   <ArrowRight className="w-4 h-4" />

@@ -18,29 +18,21 @@ import {
   CheckCircle2, 
   ChevronLeft, 
   ChevronRight, 
-  ExternalLink,
   Sparkles,
-  Zap,
   HardHat
 } from 'lucide-react';
 
 export default function Home({ onOpenModal }) {
-  // Video hero state
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
 
-  // Counter state (scrolling / count up animation)
   const [countersStarted, setCountersStarted] = useState(false);
   const [counts, setCounts] = useState({ projects: 0, machines: 0, steel: 0, engineers: 0 });
 
-  // Project Tabs state
   const [projectTab, setProjectTab] = useState('all');
-
-  // Testimonial slider state
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
-  // Toggle video play/pause
   const togglePlay = () => {
     if (videoRef.current) {
       if (isPlaying) {
@@ -52,7 +44,6 @@ export default function Home({ onOpenModal }) {
     }
   };
 
-  // Toggle video sound
   const toggleMute = () => {
     if (videoRef.current) {
       videoRef.current.muted = !isMuted;
@@ -60,7 +51,6 @@ export default function Home({ onOpenModal }) {
     }
   };
 
-  // Trigger counters count-up effect
   useEffect(() => {
     const handleScroll = () => {
       const counterSection = document.getElementById('counters-section');
@@ -72,7 +62,7 @@ export default function Home({ onOpenModal }) {
       }
     };
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check on initial load
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, [countersStarted]);
 
@@ -100,7 +90,6 @@ export default function Home({ onOpenModal }) {
     }
   }, [countersStarted]);
 
-  // Featured Projects Data
   const projects = [
     {
       id: 1,
@@ -174,7 +163,6 @@ export default function Home({ onOpenModal }) {
     ? projects 
     : projects.filter(p => p.category === projectTab);
 
-  // Testimonials Data
   const testimonials = [
     {
       quote: "Amigo Connect provided both the heavy machinery fleet and the civil engineering expertise required to complete our river viaduct project two months ahead of schedule. Their professionalism and zero-harm safety record are unmatched.",
@@ -217,32 +205,31 @@ export default function Home({ onOpenModal }) {
             loop
             muted={isMuted}
             playsInline
-            className="w-full h-full object-cover scale-105 filter brightness-[0.65] contrast-[1.1]"
+            className="w-full h-full object-cover scale-105 filter brightness-[0.6] contrast-[1.15]"
           >
             <source src="/videos/IntroductionVideo.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           
-          {/* Gradient Vignette & Dark Overlay for WCAG AAA contrast */}
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/65 to-slate-950/40"></div>
-          <div className="absolute inset-0 bg-radial-gradient from-transparent via-slate-950/40 to-slate-950/90"></div>
+          <div className="absolute inset-0 bg-radial-gradient from-transparent via-slate-950/50 to-slate-950/95"></div>
         </div>
 
-        {/* Video Player Controls (Play/Pause & Mute) */}
-        <div className="absolute bottom-8 right-8 z-20 flex items-center space-x-3 bg-slate-900/80 backdrop-blur-md p-2 rounded-full border border-slate-700/60 shadow-2xl">
+        {/* Video Player Controls */}
+        <div className="absolute bottom-8 right-8 z-20 flex items-center space-x-3 bg-slate-950/80 backdrop-blur-md p-2 rounded-full border border-sky-500/20 shadow-2xl">
           <button
             onClick={togglePlay}
             aria-label={isPlaying ? "Pause video" : "Play video"}
-            className="p-2.5 text-slate-300 hover:text-amber-400 hover:bg-slate-800 rounded-full transition-colors"
+            className="p-2.5 text-slate-300 hover:text-red-400 hover:bg-slate-900 rounded-full transition-colors"
             title={isPlaying ? "Pause Video" : "Play Video"}
           >
             {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 ml-0.5" />}
           </button>
-          <div className="w-px h-4 bg-slate-700"></div>
+          <div className="w-px h-4 bg-slate-800"></div>
           <button
             onClick={toggleMute}
             aria-label={isMuted ? "Unmute video" : "Mute video"}
-            className="p-2.5 text-slate-300 hover:text-amber-400 hover:bg-slate-800 rounded-full transition-colors"
+            className="p-2.5 text-slate-300 hover:text-sky-400 hover:bg-slate-900 rounded-full transition-colors"
             title={isMuted ? "Unmute Audio" : "Mute Audio"}
           >
             {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
@@ -254,9 +241,9 @@ export default function Home({ onOpenModal }) {
           <div className="max-w-3xl space-y-6">
             
             {/* Status Badge */}
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 bg-amber-500/10 border border-amber-500/30 rounded-full backdrop-blur-md">
-              <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
-              <span className="text-xs font-bold text-amber-400 uppercase tracking-widest">
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 bg-red-500/10 border border-red-500/30 rounded-full backdrop-blur-md">
+              <span className="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+              <span className="text-xs font-bold text-red-400 uppercase tracking-widest">
                 Premier Turnkey EPC Contractor
               </span>
             </div>
@@ -264,7 +251,7 @@ export default function Home({ onOpenModal }) {
             {/* Headline H1 */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white font-heading leading-tight sm:leading-none tracking-tight">
               Building Infrastructure. <br className="hidden sm:inline" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-red-400 to-sky-400">
                 Powering Tomorrow.
               </span> <br />
               Equipping Your Success.
@@ -279,7 +266,7 @@ export default function Home({ onOpenModal }) {
             <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
               <Link
                 to="/services"
-                className="px-8 py-4 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-base rounded-xl shadow-xl shadow-amber-500/25 hover:shadow-amber-500/40 transition-all transform hover:-translate-y-1 flex items-center justify-center space-x-3 group"
+                className="px-8 py-4 bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white font-black text-base rounded-xl shadow-xl shadow-red-600/25 hover:shadow-red-600/40 transition-all transform hover:-translate-y-1 flex items-center justify-center space-x-3 group border border-red-400/30"
               >
                 <span>Explore Our Services</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -287,9 +274,9 @@ export default function Home({ onOpenModal }) {
               
               <Link
                 to="/resources"
-                className="px-8 py-4 bg-slate-900/90 hover:bg-slate-800 text-white font-bold text-base rounded-xl border border-slate-700/80 backdrop-blur-md transition-all flex items-center justify-center space-x-2"
+                className="px-8 py-4 bg-slate-900/90 hover:bg-slate-850 text-sky-300 font-bold text-base rounded-xl border border-sky-500/30 backdrop-blur-md transition-all flex items-center justify-center space-x-2"
               >
-                <Truck className="w-5 h-5 text-amber-400" />
+                <Truck className="w-5 h-5 text-sky-400" />
                 <span>View Our Machinery Fleet</span>
               </Link>
             </div>
@@ -297,15 +284,15 @@ export default function Home({ onOpenModal }) {
             {/* Quick Metrics Bar */}
             <div className="pt-8 border-t border-slate-800/80 grid grid-cols-3 gap-4 text-slate-300 text-xs">
               <div className="flex items-center space-x-2">
-                <ShieldCheck className="w-5 h-5 text-amber-500 shrink-0" />
+                <ShieldCheck className="w-5 h-5 text-sky-400 shrink-0" />
                 <span>ISO 9001 & ISO 45001 Certified</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Clock className="w-5 h-5 text-amber-500 shrink-0" />
+                <Clock className="w-5 h-5 text-red-500 shrink-0" />
                 <span>24/7 Equipment Mobilization</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Award className="w-5 h-5 text-amber-500 shrink-0" />
+                <Award className="w-5 h-5 text-sky-400 shrink-0" />
                 <span>100% On-Time Completion Rate</span>
               </div>
             </div>
@@ -315,14 +302,14 @@ export default function Home({ onOpenModal }) {
       </section>
 
       {/* ================= 3. "WHO WE ARE" SECTION ================= */}
-      <section className="py-24 bg-slate-900 border-t border-slate-800 relative">
+      <section className="py-24 bg-slate-900 border-t border-slate-850 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             
-            {/* Left Visual: Image & Badge */}
+            {/* Left Visual */}
             <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-amber-500 to-amber-600 rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-500"></div>
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-700/80">
+              <div className="absolute -inset-1 bg-gradient-to-r from-red-600 to-sky-500 rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-500"></div>
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-800">
                 <img
                   src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1200&q=80"
                   alt="Amigo Connect EPC Engineers on Bridge Site inspecting schematics"
@@ -331,17 +318,17 @@ export default function Home({ onOpenModal }) {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent"></div>
                 
                 {/* Floating Glassmorphism Overlay */}
-                <div className="absolute bottom-6 left-6 right-6 p-5 glass-panel rounded-xl border border-slate-700/80 flex items-center justify-between">
+                <div className="absolute bottom-6 left-6 right-6 p-5 glass-panel rounded-xl border border-sky-500/20 flex items-center justify-between">
                   <div className="flex items-center space-x-3">
-                    <div className="p-3 bg-amber-500 text-slate-950 rounded-lg">
+                    <div className="p-3 bg-red-600 text-white rounded-lg">
                       <HardHat className="w-6 h-6 stroke-[2.5]" />
                     </div>
                     <div>
                       <div className="text-white font-bold text-base font-heading">Decades of EPC Expertise</div>
-                      <div className="text-slate-400 text-xs">Bridge Spans • Windmills • Plant Rentals</div>
+                      <div className="text-sky-300 text-xs">Bridge Spans • Windmills • Plant Rentals</div>
                     </div>
                   </div>
-                  <span className="hidden sm:inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-bold rounded-md">
+                  <span className="hidden sm:inline-block px-3 py-1 bg-sky-500/20 text-sky-400 text-xs font-bold rounded-md border border-sky-500/30">
                     ISO Certified
                   </span>
                 </div>
@@ -350,8 +337,8 @@ export default function Home({ onOpenModal }) {
 
             {/* Right Text Block */}
             <div className="space-y-6">
-              <div className="inline-flex items-center space-x-2 px-3 py-1 bg-slate-800 border border-slate-700 rounded-lg text-amber-400 text-xs font-bold uppercase tracking-wider">
-                <Building2 className="w-3.5 h-3.5" />
+              <div className="inline-flex items-center space-x-2 px-3 py-1 bg-slate-950 border border-slate-800 rounded-lg text-sky-400 text-xs font-bold uppercase tracking-wider">
+                <Building2 className="w-3.5 h-3.5 text-red-500" />
                 <span>Who We Are</span>
               </div>
 
@@ -372,19 +359,19 @@ export default function Home({ onOpenModal }) {
               {/* Checklist */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                 <div className="flex items-center space-x-2 text-slate-200 text-sm font-semibold">
-                  <CheckCircle2 className="w-4 h-4 text-amber-500 shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-red-500 shrink-0" />
                   <span>Turnkey EPC Execution</span>
                 </div>
                 <div className="flex items-center space-x-2 text-slate-200 text-sm font-semibold">
-                  <CheckCircle2 className="w-4 h-4 text-amber-500 shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-sky-400 shrink-0" />
                   <span>In-House Equipment Fleet</span>
                 </div>
                 <div className="flex items-center space-x-2 text-slate-200 text-sm font-semibold">
-                  <CheckCircle2 className="w-4 h-4 text-amber-500 shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-red-500 shrink-0" />
                   <span>Precision Steel Fabrication</span>
                 </div>
                 <div className="flex items-center space-x-2 text-slate-200 text-sm font-semibold">
-                  <CheckCircle2 className="w-4 h-4 text-amber-500 shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-sky-400 shrink-0" />
                   <span>ISO 45001 HSE Compliance</span>
                 </div>
               </div>
@@ -393,10 +380,10 @@ export default function Home({ onOpenModal }) {
               <div className="pt-4">
                 <Link
                   to="/about"
-                  className="px-6 py-3.5 bg-slate-800 hover:bg-slate-700 text-amber-400 font-bold text-sm rounded-xl border border-slate-700 inline-flex items-center space-x-2 transition-all hover:border-amber-500/50"
+                  className="px-6 py-3.5 bg-slate-950 hover:bg-slate-800 text-sky-300 font-bold text-sm rounded-xl border border-slate-800 inline-flex items-center space-x-2 transition-all hover:border-sky-400/40"
                 >
                   <span>Read Our Full Company Profile</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 text-red-500" />
                 </Link>
               </div>
 
@@ -407,64 +394,64 @@ export default function Home({ onOpenModal }) {
       </section>
 
       {/* ================= 4. KEY PERFORMANCE COUNTERS ================= */}
-      <section id="counters-section" className="py-16 bg-slate-950 border-t border-b border-slate-800 relative">
+      <section id="counters-section" className="py-16 bg-slate-950 border-t border-b border-slate-850 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             
             {/* Counter 1 */}
-            <div className="p-6 bg-slate-900/60 rounded-2xl border border-slate-800 text-center hover:border-amber-500/40 transition-colors group">
-              <div className="inline-flex p-3.5 bg-amber-500/10 text-amber-400 rounded-xl mb-3 group-hover:scale-110 transition-transform">
+            <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 text-center hover:border-red-500/40 transition-colors group">
+              <div className="inline-flex p-3.5 bg-red-500/10 text-red-500 rounded-xl mb-3 group-hover:scale-110 transition-transform">
                 <Building2 className="w-7 h-7" />
               </div>
               <div className="text-4xl sm:text-5xl font-black text-white font-heading tracking-tight">
-                {counts.projects}<span className="text-amber-500">+</span>
+                {counts.projects}<span className="text-red-500">+</span>
               </div>
               <div className="text-sm font-bold text-slate-300 uppercase tracking-wider mt-1 font-heading">
                 Mega Projects Completed
               </div>
-              <p className="text-xs text-slate-400 mt-1">Bridges, Viaducts & Energy Infrastructure</p>
+              <p className="text-xs text-sky-400 mt-1">Bridges, Viaducts & Energy Infrastructure</p>
             </div>
 
             {/* Counter 2 */}
-            <div className="p-6 bg-slate-900/60 rounded-2xl border border-slate-800 text-center hover:border-amber-500/40 transition-colors group">
-              <div className="inline-flex p-3.5 bg-amber-500/10 text-amber-400 rounded-xl mb-3 group-hover:scale-110 transition-transform">
+            <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 text-center hover:border-sky-500/40 transition-colors group">
+              <div className="inline-flex p-3.5 bg-sky-500/10 text-sky-400 rounded-xl mb-3 group-hover:scale-110 transition-transform">
                 <Truck className="w-7 h-7" />
               </div>
               <div className="text-4xl sm:text-5xl font-black text-white font-heading tracking-tight">
-                {counts.machines}<span className="text-amber-500">+</span>
+                {counts.machines}<span className="text-sky-400">+</span>
               </div>
               <div className="text-sm font-bold text-slate-300 uppercase tracking-wider mt-1 font-heading">
                 Heavy Machines in Fleet
               </div>
-              <p className="text-xs text-slate-400 mt-1">50T-800T Cranes, Excavators & Haulers</p>
+              <p className="text-xs text-sky-400 mt-1">50T-800T Cranes, Excavators & Haulers</p>
             </div>
 
             {/* Counter 3 */}
-            <div className="p-6 bg-slate-900/60 rounded-2xl border border-slate-800 text-center hover:border-amber-500/40 transition-colors group">
-              <div className="inline-flex p-3.5 bg-amber-500/10 text-amber-400 rounded-xl mb-3 group-hover:scale-110 transition-transform">
+            <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 text-center hover:border-red-500/40 transition-colors group">
+              <div className="inline-flex p-3.5 bg-red-500/10 text-red-500 rounded-xl mb-3 group-hover:scale-110 transition-transform">
                 <Wind className="w-7 h-7" />
               </div>
               <div className="text-4xl sm:text-5xl font-black text-white font-heading tracking-tight">
-                {counts.steel.toLocaleString()}<span className="text-amber-500">+</span>
+                {counts.steel.toLocaleString()}<span className="text-red-500">+</span>
               </div>
               <div className="text-sm font-bold text-slate-300 uppercase tracking-wider mt-1 font-heading">
                 Tons of Steel Fabricated
               </div>
-              <p className="text-xs text-slate-400 mt-1">Windmill Towers & Tubular Structures</p>
+              <p className="text-xs text-sky-400 mt-1">Windmill Towers & Tubular Structures</p>
             </div>
 
             {/* Counter 4 */}
-            <div className="p-6 bg-slate-900/60 rounded-2xl border border-slate-800 text-center hover:border-amber-500/40 transition-colors group">
-              <div className="inline-flex p-3.5 bg-amber-500/10 text-amber-400 rounded-xl mb-3 group-hover:scale-110 transition-transform">
+            <div className="p-6 bg-slate-900/80 rounded-2xl border border-slate-800 text-center hover:border-sky-500/40 transition-colors group">
+              <div className="inline-flex p-3.5 bg-sky-500/10 text-sky-400 rounded-xl mb-3 group-hover:scale-110 transition-transform">
                 <Users className="w-7 h-7" />
               </div>
               <div className="text-4xl sm:text-5xl font-black text-white font-heading tracking-tight">
-                {counts.engineers}<span className="text-amber-500">+</span>
+                {counts.engineers}<span className="text-sky-400">+</span>
               </div>
               <div className="text-sm font-bold text-slate-300 uppercase tracking-wider mt-1 font-heading">
                 Skilled Engineers & Riggers
               </div>
-              <p className="text-xs text-slate-400 mt-1">Certified Rigging Specialists & Designers</p>
+              <p className="text-xs text-sky-400 mt-1">Certified Rigging Specialists & Designers</p>
             </div>
 
           </div>
@@ -477,7 +464,7 @@ export default function Home({ onOpenModal }) {
           
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 bg-amber-500/10 border border-amber-500/20 rounded-full text-amber-400 text-xs font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center space-x-2 px-3 py-1 bg-red-500/10 border border-red-500/20 rounded-full text-red-400 text-xs font-bold uppercase tracking-wider">
               <Layers className="w-3.5 h-3.5" />
               <span>Core Verticals</span>
             </div>
@@ -493,28 +480,28 @@ export default function Home({ onOpenModal }) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             {/* Service Card 1 */}
-            <div className="bg-slate-950 border border-slate-800 rounded-2xl p-8 hover:border-amber-500/50 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group shadow-xl">
+            <div className="bg-slate-950 border border-slate-800 rounded-2xl p-8 hover:border-red-500/50 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group shadow-xl">
               <div className="space-y-6">
-                <div className="p-4 bg-amber-500/10 text-amber-400 rounded-2xl w-fit group-hover:bg-amber-500 group-hover:text-slate-950 transition-colors">
+                <div className="p-4 bg-red-500/10 text-red-500 rounded-2xl w-fit group-hover:bg-red-600 group-hover:text-white transition-colors">
                   <Anchor className="w-8 h-8" />
                 </div>
-                <h3 className="text-2xl font-bold text-white font-heading group-hover:text-amber-400 transition-colors">
+                <h3 className="text-2xl font-bold text-white font-heading group-hover:text-red-400 transition-colors">
                   Bridge & Civil Construction
                 </h3>
                 <p className="text-slate-300 text-sm leading-relaxed">
                   From cable-stayed masterpieces to robust concrete highway bridges, we manage full-lifecycle civil construction with precision engineering and structural integrity.
                 </p>
-                <ul className="space-y-2 text-xs text-slate-400 border-t border-slate-800/80 pt-4">
+                <ul className="space-y-2 text-xs text-slate-400 border-t border-slate-850 pt-4">
                   <li className="flex items-center space-x-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
                     <span>Cable-Stayed & Viaduct Bridges</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-sky-400"></span>
                     <span>Deep Foundation Marine Piling</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
                     <span>Pre-Stressed Concrete Segmental Launching</span>
                   </li>
                 </ul>
@@ -523,7 +510,7 @@ export default function Home({ onOpenModal }) {
               <div className="pt-8">
                 <Link
                   to="/services#bridge"
-                  className="inline-flex items-center space-x-2 text-amber-400 hover:text-amber-300 font-bold text-sm group-hover:translate-x-1 transition-transform"
+                  className="inline-flex items-center space-x-2 text-red-400 hover:text-red-300 font-bold text-sm group-hover:translate-x-1 transition-transform"
                 >
                   <span>Learn More</span>
                   <ArrowRight className="w-4 h-4" />
@@ -532,28 +519,28 @@ export default function Home({ onOpenModal }) {
             </div>
 
             {/* Service Card 2 */}
-            <div className="bg-slate-950 border border-slate-800 rounded-2xl p-8 hover:border-amber-500/50 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group shadow-xl">
+            <div className="bg-slate-950 border border-slate-800 rounded-2xl p-8 hover:border-sky-500/50 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group shadow-xl">
               <div className="space-y-6">
-                <div className="p-4 bg-amber-500/10 text-amber-400 rounded-2xl w-fit group-hover:bg-amber-500 group-hover:text-slate-950 transition-colors">
+                <div className="p-4 bg-sky-500/10 text-sky-400 rounded-2xl w-fit group-hover:bg-sky-500 group-hover:text-slate-950 transition-colors">
                   <Wind className="w-8 h-8" />
                 </div>
-                <h3 className="text-2xl font-bold text-white font-heading group-hover:text-amber-400 transition-colors">
+                <h3 className="text-2xl font-bold text-white font-heading group-hover:text-sky-300 transition-colors">
                   Windmill Fabrication
                 </h3>
                 <p className="text-slate-300 text-sm leading-relaxed">
                   Heavy-duty, high-precision steel fabrication for wind turbine towers and rotor hubs. We support the renewable energy sector with world-class manufacturing standards.
                 </p>
-                <ul className="space-y-2 text-xs text-slate-400 border-t border-slate-800/80 pt-4">
+                <ul className="space-y-2 text-xs text-slate-400 border-t border-slate-850 pt-4">
                   <li className="flex items-center space-x-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-sky-400"></span>
                     <span>Tubular Steel Tower Section Rolling</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
                     <span>Automated Submerged Arc Welding (SAW)</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-sky-400"></span>
                     <span>Substation Structural Frame Assembly</span>
                   </li>
                 </ul>
@@ -562,7 +549,7 @@ export default function Home({ onOpenModal }) {
               <div className="pt-8">
                 <Link
                   to="/services#windmill"
-                  className="inline-flex items-center space-x-2 text-amber-400 hover:text-amber-300 font-bold text-sm group-hover:translate-x-1 transition-transform"
+                  className="inline-flex items-center space-x-2 text-sky-400 hover:text-sky-300 font-bold text-sm group-hover:translate-x-1 transition-transform"
                 >
                   <span>Learn More</span>
                   <ArrowRight className="w-4 h-4" />
@@ -571,28 +558,28 @@ export default function Home({ onOpenModal }) {
             </div>
 
             {/* Service Card 3 */}
-            <div className="bg-slate-950 border border-slate-800 rounded-2xl p-8 hover:border-amber-500/50 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group shadow-xl">
+            <div className="bg-slate-950 border border-slate-800 rounded-2xl p-8 hover:border-red-500/50 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group shadow-xl">
               <div className="space-y-6">
-                <div className="p-4 bg-amber-500/10 text-amber-400 rounded-2xl w-fit group-hover:bg-amber-500 group-hover:text-slate-950 transition-colors">
+                <div className="p-4 bg-red-500/10 text-red-500 rounded-2xl w-fit group-hover:bg-red-600 group-hover:text-white transition-colors">
                   <Truck className="w-8 h-8" />
                 </div>
-                <h3 className="text-2xl font-bold text-white font-heading group-hover:text-amber-400 transition-colors">
+                <h3 className="text-2xl font-bold text-white font-heading group-hover:text-red-400 transition-colors">
                   Heavy Equipment Rental
                 </h3>
                 <p className="text-slate-300 text-sm leading-relaxed">
                   Access an expansive, meticulously maintained fleet of crawler cranes, hydraulic excavators, haul trucks, and earthmoving equipment for your site's exact needs.
                 </p>
-                <ul className="space-y-2 text-xs text-slate-400 border-t border-slate-800/80 pt-4">
+                <ul className="space-y-2 text-xs text-slate-400 border-t border-slate-850 pt-4">
                   <li className="flex items-center space-x-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
                     <span>50T to 800T Heavy Crawler Cranes</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-sky-400"></span>
                     <span>Long-Reach Excavators & Haulers</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
                     <span>24/7 Field Maintenance & Rigging Support</span>
                   </li>
                 </ul>
@@ -601,7 +588,7 @@ export default function Home({ onOpenModal }) {
               <div className="pt-8">
                 <Link
                   to="/resources"
-                  className="inline-flex items-center space-x-2 text-amber-400 hover:text-amber-300 font-bold text-sm group-hover:translate-x-1 transition-transform"
+                  className="inline-flex items-center space-x-2 text-red-400 hover:text-red-300 font-bold text-sm group-hover:translate-x-1 transition-transform"
                 >
                   <span>View Fleet Catalog</span>
                   <ArrowRight className="w-4 h-4" />
@@ -614,7 +601,7 @@ export default function Home({ onOpenModal }) {
       </section>
 
       {/* ================= 6. WHY PARTNER WITH AMIGO CONNECT (EPC ADVANTAGES) ================= */}
-      <section className="py-24 bg-slate-950 border-t border-slate-800 relative">
+      <section className="py-24 bg-slate-950 border-t border-slate-850 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -622,7 +609,7 @@ export default function Home({ onOpenModal }) {
             {/* Left Advantage Copy & Bullets */}
             <div className="lg:col-span-7 space-y-8">
               <div>
-                <span className="text-xs font-bold text-amber-400 uppercase tracking-widest bg-amber-500/10 px-3 py-1 rounded-md border border-amber-500/20">
+                <span className="text-xs font-bold text-sky-400 uppercase tracking-widest bg-sky-500/10 px-3 py-1 rounded-md border border-sky-500/20">
                   The EPC Edge
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-heading mt-3">
@@ -636,8 +623,8 @@ export default function Home({ onOpenModal }) {
               <div className="space-y-6">
                 
                 {/* Advantage 1 */}
-                <div className="flex items-start space-x-4 p-4 bg-slate-900/60 rounded-xl border border-slate-800 hover:border-slate-700 transition-colors">
-                  <div className="p-3 bg-amber-500/10 text-amber-400 rounded-lg shrink-0">
+                <div className="flex items-start space-x-4 p-4 bg-slate-900/80 rounded-xl border border-slate-800 hover:border-slate-700 transition-colors">
+                  <div className="p-3 bg-red-500/10 text-red-500 rounded-lg shrink-0">
                     <Award className="w-6 h-6" />
                   </div>
                   <div>
@@ -649,8 +636,8 @@ export default function Home({ onOpenModal }) {
                 </div>
 
                 {/* Advantage 2 */}
-                <div className="flex items-start space-x-4 p-4 bg-slate-900/60 rounded-xl border border-slate-800 hover:border-slate-700 transition-colors">
-                  <div className="p-3 bg-amber-500/10 text-amber-400 rounded-lg shrink-0">
+                <div className="flex items-start space-x-4 p-4 bg-slate-900/80 rounded-xl border border-slate-800 hover:border-slate-700 transition-colors">
+                  <div className="p-3 bg-sky-500/10 text-sky-400 rounded-lg shrink-0">
                     <Truck className="w-6 h-6" />
                   </div>
                   <div>
@@ -662,8 +649,8 @@ export default function Home({ onOpenModal }) {
                 </div>
 
                 {/* Advantage 3 */}
-                <div className="flex items-start space-x-4 p-4 bg-slate-900/60 rounded-xl border border-slate-800 hover:border-slate-700 transition-colors">
-                  <div className="p-3 bg-amber-500/10 text-amber-400 rounded-lg shrink-0">
+                <div className="flex items-start space-x-4 p-4 bg-slate-900/80 rounded-xl border border-slate-800 hover:border-slate-700 transition-colors">
+                  <div className="p-3 bg-red-500/10 text-red-500 rounded-lg shrink-0">
                     <ShieldCheck className="w-6 h-6" />
                   </div>
                   <div>
@@ -675,8 +662,8 @@ export default function Home({ onOpenModal }) {
                 </div>
 
                 {/* Advantage 4 */}
-                <div className="flex items-start space-x-4 p-4 bg-slate-900/60 rounded-xl border border-slate-800 hover:border-slate-700 transition-colors">
-                  <div className="p-3 bg-amber-500/10 text-amber-400 rounded-lg shrink-0">
+                <div className="flex items-start space-x-4 p-4 bg-slate-900/80 rounded-xl border border-slate-800 hover:border-slate-700 transition-colors">
+                  <div className="p-3 bg-sky-500/10 text-sky-400 rounded-lg shrink-0">
                     <Clock className="w-6 h-6" />
                   </div>
                   <div>
@@ -694,48 +681,48 @@ export default function Home({ onOpenModal }) {
             <div className="lg:col-span-5">
               <div className="p-8 bg-slate-900 rounded-2xl border border-slate-800 shadow-2xl relative">
                 <h3 className="text-xl font-bold text-white font-heading mb-6 flex items-center space-x-2 border-b border-slate-800 pb-4">
-                  <Sparkles className="w-5 h-5 text-amber-400" />
+                  <Sparkles className="w-5 h-5 text-sky-400" />
                   <span>Concept to Completion Workflow</span>
                 </h3>
 
-                <div className="relative pl-6 space-y-8 before:absolute before:left-2 before:top-3 before:bottom-3 before:w-0.5 before:bg-gradient-to-b before:from-amber-500 before:via-amber-500/50 before:to-slate-700">
+                <div className="relative pl-6 space-y-8 before:absolute before:left-2 before:top-3 before:bottom-3 before:w-0.5 before:bg-gradient-to-b before:from-red-500 before:via-sky-400 before:to-slate-700">
                   
                   {/* Step 1 */}
                   <div className="relative">
-                    <div className="absolute -left-[31px] top-0 p-1 bg-amber-500 rounded-full text-slate-950">
+                    <div className="absolute -left-[31px] top-0 p-1 bg-red-600 rounded-full text-white">
                       <CheckCircle2 className="w-4 h-4" />
                     </div>
-                    <div className="text-xs font-bold text-amber-400 uppercase tracking-widest">Phase 01</div>
+                    <div className="text-xs font-bold text-red-400 uppercase tracking-widest">Phase 01</div>
                     <div className="text-base font-bold text-white font-heading">Feasibility & Structural Design</div>
                     <p className="text-xs text-slate-400 mt-0.5">3D CAD modeling, stress simulation & site geotechnical analysis.</p>
                   </div>
 
                   {/* Step 2 */}
                   <div className="relative">
-                    <div className="absolute -left-[31px] top-0 p-1 bg-amber-500 rounded-full text-slate-950">
+                    <div className="absolute -left-[31px] top-0 p-1 bg-sky-500 rounded-full text-slate-950">
                       <CheckCircle2 className="w-4 h-4" />
                     </div>
-                    <div className="text-xs font-bold text-amber-400 uppercase tracking-widest">Phase 02</div>
+                    <div className="text-xs font-bold text-sky-400 uppercase tracking-widest">Phase 02</div>
                     <div className="text-base font-bold text-white font-heading">Steel Procurement & Tower Fabrication</div>
                     <p className="text-xs text-slate-400 mt-0.5">Certified steel sourcing, automated SAW welding & ISO lab QA.</p>
                   </div>
 
                   {/* Step 3 */}
                   <div className="relative">
-                    <div className="absolute -left-[31px] top-0 p-1 bg-amber-500 rounded-full text-slate-950">
+                    <div className="absolute -left-[31px] top-0 p-1 bg-red-600 rounded-full text-white">
                       <CheckCircle2 className="w-4 h-4" />
                     </div>
-                    <div className="text-xs font-bold text-amber-400 uppercase tracking-widest">Phase 03</div>
+                    <div className="text-xs font-bold text-red-400 uppercase tracking-widest">Phase 03</div>
                     <div className="text-base font-bold text-white font-heading">Machinery Fleet Mobilization</div>
                     <p className="text-xs text-slate-400 mt-0.5">Deploying heavy crawler cranes, riggers & support teams.</p>
                   </div>
 
                   {/* Step 4 */}
                   <div className="relative">
-                    <div className="absolute -left-[31px] top-0 p-1 bg-amber-500 rounded-full text-slate-950">
+                    <div className="absolute -left-[31px] top-0 p-1 bg-sky-500 rounded-full text-slate-950">
                       <CheckCircle2 className="w-4 h-4" />
                     </div>
-                    <div className="text-xs font-bold text-amber-400 uppercase tracking-widest">Phase 04</div>
+                    <div className="text-xs font-bold text-sky-400 uppercase tracking-widest">Phase 04</div>
                     <div className="text-base font-bold text-white font-heading">Final Construction & Commissioning</div>
                     <p className="text-xs text-slate-400 mt-0.5">Erection, load testing, and formal project handover.</p>
                   </div>
@@ -745,7 +732,7 @@ export default function Home({ onOpenModal }) {
                 <div className="mt-8 pt-6 border-t border-slate-800">
                   <button
                     onClick={() => onOpenModal('meeting')}
-                    className="w-full py-3 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-xl text-center shadow-lg transition-colors"
+                    className="w-full py-3 bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white font-bold rounded-xl text-center shadow-lg transition-colors border border-red-400/30"
                   >
                     Schedule EPC Consultation
                   </button>
@@ -765,7 +752,7 @@ export default function Home({ onOpenModal }) {
           
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div>
-              <span className="text-xs font-bold text-amber-400 uppercase tracking-widest bg-amber-500/10 px-3 py-1 rounded-md border border-amber-500/20">
+              <span className="text-xs font-bold text-red-400 uppercase tracking-widest bg-red-500/10 px-3 py-1 rounded-md border border-red-500/20">
                 Portfolio Landmark Works
               </span>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-heading mt-3">
@@ -779,7 +766,7 @@ export default function Home({ onOpenModal }) {
                 onClick={() => setProjectTab('all')}
                 className={`px-4 py-2 text-xs font-bold rounded-lg transition-all ${
                   projectTab === 'all'
-                    ? 'bg-amber-500 text-slate-950 shadow-md'
+                    ? 'bg-red-600 text-white shadow-md'
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
@@ -789,7 +776,7 @@ export default function Home({ onOpenModal }) {
                 onClick={() => setProjectTab('bridge')}
                 className={`px-4 py-2 text-xs font-bold rounded-lg transition-all ${
                   projectTab === 'bridge'
-                    ? 'bg-amber-500 text-slate-950 shadow-md'
+                    ? 'bg-red-600 text-white shadow-md'
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
@@ -799,7 +786,7 @@ export default function Home({ onOpenModal }) {
                 onClick={() => setProjectTab('windmill')}
                 className={`px-4 py-2 text-xs font-bold rounded-lg transition-all ${
                   projectTab === 'windmill'
-                    ? 'bg-amber-500 text-slate-950 shadow-md'
+                    ? 'bg-red-600 text-white shadow-md'
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
@@ -813,7 +800,7 @@ export default function Home({ onOpenModal }) {
             {filteredProjects.map((project) => (
               <div
                 key={project.id}
-                className="group relative bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 hover:border-amber-500/60 transition-all duration-300 shadow-xl"
+                className="group relative bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 hover:border-red-500/60 transition-all duration-300 shadow-xl"
               >
                 <div className="relative h-64 overflow-hidden">
                   <img
@@ -823,14 +810,14 @@ export default function Home({ onOpenModal }) {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
                   
-                  <span className="absolute top-4 left-4 px-3 py-1 bg-slate-900/90 backdrop-blur-md text-amber-400 text-xs font-bold rounded-lg border border-slate-700">
+                  <span className="absolute top-4 left-4 px-3 py-1 bg-slate-950/90 text-sky-400 text-xs font-bold rounded-lg border border-slate-800">
                     {project.categoryName}
                   </span>
 
                   {/* Hover Overlay Stats */}
                   <div className="absolute inset-0 bg-slate-950/90 backdrop-blur-sm p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between">
                     <div>
-                      <span className="text-xs font-bold text-amber-400 uppercase tracking-widest">Project Highlights</span>
+                      <span className="text-xs font-bold text-red-400 uppercase tracking-widest">Project Highlights</span>
                       <h4 className="text-lg font-bold text-white font-heading mt-1">{project.title}</h4>
                       <p className="text-xs text-slate-300 mt-2">{project.description}</p>
                     </div>
@@ -842,7 +829,7 @@ export default function Home({ onOpenModal }) {
                       </div>
                       <div className="flex justify-between">
                         <span className="text-slate-400">Contract Value:</span>
-                        <span className="text-amber-400 font-bold">{project.value}</span>
+                        <span className="text-red-400 font-bold">{project.value}</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-slate-400">Scale / Scope:</span>
@@ -853,12 +840,12 @@ export default function Home({ onOpenModal }) {
                 </div>
 
                 <div className="p-6 space-y-2">
-                  <h3 className="text-lg font-bold text-white font-heading group-hover:text-amber-400 transition-colors">
+                  <h3 className="text-lg font-bold text-white font-heading group-hover:text-red-400 transition-colors">
                     {project.title}
                   </h3>
                   <div className="flex items-center justify-between text-xs text-slate-400 pt-2">
                     <span>{project.location}</span>
-                    <span className="font-bold text-amber-400">{project.value}</span>
+                    <span className="font-bold text-sky-400">{project.value}</span>
                   </div>
                 </div>
               </div>
@@ -868,10 +855,10 @@ export default function Home({ onOpenModal }) {
           <div className="text-center pt-12">
             <Link
               to="/projects"
-              className="px-8 py-3.5 bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm rounded-xl border border-slate-700 inline-flex items-center space-x-2 transition-colors"
+              className="px-8 py-3.5 bg-slate-950 hover:bg-slate-800 text-white font-bold text-sm rounded-xl border border-slate-800 inline-flex items-center space-x-2 transition-colors"
             >
               <span>Explore All Landmark Projects</span>
-              <ArrowRight className="w-4 h-4 text-amber-400" />
+              <ArrowRight className="w-4 h-4 text-red-500" />
             </Link>
           </div>
 
@@ -879,10 +866,10 @@ export default function Home({ onOpenModal }) {
       </section>
 
       {/* ================= 8. CLIENT TESTIMONIALS SLIDER ================= */}
-      <section className="py-24 bg-slate-950 border-t border-slate-800 relative">
+      <section className="py-24 bg-slate-950 border-t border-slate-850 relative">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           
-          <span className="text-xs font-bold text-amber-400 uppercase tracking-widest bg-amber-500/10 px-3 py-1 rounded-md border border-amber-500/20">
+          <span className="text-xs font-bold text-sky-400 uppercase tracking-widest bg-sky-500/10 px-3 py-1 rounded-md border border-sky-500/20">
             Partner Testimonials
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-heading mt-3 mb-12">
@@ -890,7 +877,7 @@ export default function Home({ onOpenModal }) {
           </h2>
 
           <div className="relative bg-slate-900 p-8 sm:p-12 rounded-3xl border border-slate-800 shadow-2xl">
-            <div className="text-amber-500 text-6xl font-serif leading-none mb-4 opacity-50">“</div>
+            <div className="text-red-500 text-6xl font-serif leading-none mb-4 opacity-50">“</div>
 
             <p className="text-lg sm:text-xl text-slate-200 italic font-normal leading-relaxed max-w-3xl mx-auto">
               {testimonials[currentTestimonial].quote}
@@ -900,7 +887,7 @@ export default function Home({ onOpenModal }) {
               <div className="text-base font-bold text-white font-heading">
                 {testimonials[currentTestimonial].author}
               </div>
-              <div className="text-xs text-amber-400 font-semibold">
+              <div className="text-xs text-sky-400 font-semibold">
                 {testimonials[currentTestimonial].title}, <span className="text-slate-400">{testimonials[currentTestimonial].company}</span>
               </div>
             </div>
@@ -909,14 +896,14 @@ export default function Home({ onOpenModal }) {
             <div className="flex items-center justify-between absolute inset-y-0 left-4 right-4 pointer-events-none">
               <button
                 onClick={prevTestimonial}
-                className="pointer-events-auto p-3 bg-slate-800/80 hover:bg-amber-500 hover:text-slate-950 text-white rounded-full transition-colors shadow-lg border border-slate-700"
+                className="pointer-events-auto p-3 bg-slate-950/80 hover:bg-red-600 text-white rounded-full transition-colors shadow-lg border border-slate-800"
                 aria-label="Previous Testimonial"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
               <button
                 onClick={nextTestimonial}
-                className="pointer-events-auto p-3 bg-slate-800/80 hover:bg-amber-500 hover:text-slate-950 text-white rounded-full transition-colors shadow-lg border border-slate-700"
+                className="pointer-events-auto p-3 bg-slate-950/80 hover:bg-red-600 text-white rounded-full transition-colors shadow-lg border border-slate-800"
                 aria-label="Next Testimonial"
               >
                 <ChevronRight className="w-5 h-5" />
@@ -932,7 +919,7 @@ export default function Home({ onOpenModal }) {
                 key={idx}
                 onClick={() => setCurrentTestimonial(idx)}
                 className={`w-3 h-3 rounded-full transition-all ${
-                  idx === currentTestimonial ? 'bg-amber-500 w-8' : 'bg-slate-800 hover:bg-slate-700'
+                  idx === currentTestimonial ? 'bg-red-500 w-8' : 'bg-slate-800 hover:bg-slate-700'
                 }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />
@@ -943,13 +930,13 @@ export default function Home({ onOpenModal }) {
       </section>
 
       {/* ================= FINAL CTA BANNER ================= */}
-      <section className="py-16 bg-gradient-to-r from-amber-500 via-amber-500 to-amber-600 text-slate-950">
+      <section className="py-16 bg-gradient-to-r from-red-700 via-red-600 to-red-700 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <h3 className="text-2xl sm:text-3xl font-black font-heading tracking-tight">
               Ready to Accelerate Your Mega-Infrastructure Project?
             </h3>
-            <p className="text-slate-900 font-medium text-sm mt-1">
+            <p className="text-red-100 font-medium text-sm mt-1">
               Connect with our Chief Engineering Team today for instant equipment deployment and turnkey EPC estimates.
             </p>
           </div>
@@ -957,7 +944,7 @@ export default function Home({ onOpenModal }) {
           <div className="flex items-center space-x-4 shrink-0">
             <button
               onClick={() => onOpenModal('quote')}
-              className="px-8 py-4 bg-slate-950 hover:bg-slate-900 text-white font-bold text-sm rounded-xl shadow-xl transition-all"
+              className="px-8 py-4 bg-slate-950 hover:bg-slate-900 text-white font-bold text-sm rounded-xl shadow-xl transition-all border border-slate-800"
             >
               Request Immediate Quote
             </button>

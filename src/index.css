@@ -9,21 +9,29 @@
   }
 }
 
-/* Industrial styling utilities */
-.bg-safety-yellow {
-  background-color: #f59e0b;
+/* Red & Light Blue Theme Utilities */
+.bg-brand-red {
+  background-color: #dc2626;
 }
 
-.text-safety-yellow {
-  color: #f59e0b;
+.text-brand-red {
+  color: #ef4444;
 }
 
-.border-safety-yellow {
-  border-color: #f59e0b;
+.border-brand-red {
+  border-color: #dc2626;
 }
 
-.hover\:bg-safety-yellow-hover:hover {
-  background-color: #d97706;
+.text-light-blue {
+  color: #38bdf8;
+}
+
+.bg-light-blue {
+  background-color: #38bdf8;
+}
+
+.border-light-blue {
+  border-color: #38bdf8;
 }
 
 /* Custom scrollbar */
@@ -31,26 +39,26 @@
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #0f172a;
+  background: #090d16;
 }
 ::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: #1e293b;
   border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #f59e0b;
+  background: #ef4444;
 }
 
 /* Smooth glassmorphic backdrop */
 .glass-panel {
-  background: rgba(30, 41, 59, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(56, 189, 248, 0.15);
 }
 
 .glass-nav {
-  background: rgba(15, 23, 42, 0.92);
+  background: rgba(9, 13, 22, 0.95);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }

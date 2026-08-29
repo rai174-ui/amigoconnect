@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  Building2, 
   MapPin, 
   Phone, 
   Mail, 
@@ -32,24 +31,28 @@ export default function Footer({ onOpenModal }) {
   };
 
   return (
-    <footer className="bg-slate-950 border-t border-slate-800 text-slate-400 pt-16 pb-8">
+    <footer className="bg-slate-950 border-t border-slate-850 text-slate-400 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800/80">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-850">
           
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-4">
             <Link to="/" className="flex items-center space-x-3 group">
-              <div className="p-2.5 bg-amber-500 rounded-xl text-slate-950 shadow-md">
-                <Building2 className="w-6 h-6 stroke-[2.5]" />
+              <div className="p-1 bg-slate-900 rounded-xl border border-slate-800 shadow-md">
+                <img
+                  src="/images/logo.png"
+                  alt="Amigo Connect Official Logo"
+                  className="h-10 w-auto object-contain"
+                />
               </div>
               <div>
                 <div className="flex items-center space-x-1">
                   <span className="text-xl font-black text-white font-heading">AMIGO</span>
-                  <span className="text-xl font-black text-amber-500 font-heading">CONNECT</span>
+                  <span className="text-xl font-black text-red-500 font-heading">CONNECT</span>
                 </div>
-                <span className="text-[10px] tracking-widest text-slate-400 uppercase font-semibold block">
+                <span className="text-[10px] tracking-widest text-sky-400 uppercase font-semibold block">
                   Infrastructure & Heavy EPC
                 </span>
               </div>
@@ -60,16 +63,16 @@ export default function Footer({ onOpenModal }) {
             </p>
 
             <div className="pt-2 flex items-center space-x-4">
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-slate-300 rounded-xl transition-all border border-slate-800" title="LinkedIn">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-slate-900 hover:bg-red-600 hover:text-white text-slate-300 rounded-xl transition-all border border-slate-800" title="LinkedIn">
                 <Globe className="w-4 h-4" />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-slate-300 rounded-xl transition-all border border-slate-800" title="Twitter / X">
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-slate-900 hover:bg-red-600 hover:text-white text-slate-300 rounded-xl transition-all border border-slate-800" title="Twitter / X">
                 <Share2 className="w-4 h-4" />
               </a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-slate-300 rounded-xl transition-all border border-slate-800" title="YouTube">
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-slate-900 hover:bg-red-600 hover:text-white text-slate-300 rounded-xl transition-all border border-slate-800" title="YouTube">
                 <Video className="w-4 h-4" />
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-slate-300 rounded-xl transition-all border border-slate-800" title="Facebook">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-slate-900 hover:bg-red-600 hover:text-white text-slate-300 rounded-xl transition-all border border-slate-800" title="Facebook">
                 <MessageSquare className="w-4 h-4" />
               </a>
             </div>
@@ -77,51 +80,51 @@ export default function Footer({ onOpenModal }) {
 
           {/* Navigation Quick Links */}
           <div className="space-y-4">
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider font-heading border-l-2 border-amber-500 pl-2.5">
+            <h4 className="text-sm font-bold text-white uppercase tracking-wider font-heading border-l-2 border-red-500 pl-2.5">
               Quick Links
             </h4>
             <ul className="space-y-2.5 text-sm">
-              <li><Link to="/" className="hover:text-amber-400 transition-colors">Home</Link></li>
-              <li><Link to="/about" className="hover:text-amber-400 transition-colors">Company Profile</Link></li>
-              <li><Link to="/about#safety" className="hover:text-amber-400 transition-colors">Safety & Quality</Link></li>
-              <li><Link to="/projects" className="hover:text-amber-400 transition-colors">Featured Projects</Link></li>
-              <li><Link to="/resources" className="hover:text-amber-400 transition-colors">Machinery Fleet</Link></li>
-              <li><Link to="/contact" className="hover:text-amber-400 transition-colors">Schedule a Meeting</Link></li>
-              <li><Link to="/contact#vendor" className="hover:text-amber-400 transition-colors">Vendor Registration</Link></li>
+              <li><Link to="/" className="hover:text-sky-400 transition-colors">Home</Link></li>
+              <li><Link to="/about" className="hover:text-sky-400 transition-colors">Company Profile</Link></li>
+              <li><Link to="/about#safety" className="hover:text-sky-400 transition-colors">Safety & Quality</Link></li>
+              <li><Link to="/projects" className="hover:text-sky-400 transition-colors">Featured Projects</Link></li>
+              <li><Link to="/resources" className="hover:text-sky-400 transition-colors">Machinery Fleet</Link></li>
+              <li><Link to="/contact" className="hover:text-sky-400 transition-colors">Schedule a Meeting</Link></li>
+              <li><Link to="/contact#vendor" className="hover:text-sky-400 transition-colors">Vendor Registration</Link></li>
             </ul>
           </div>
 
           {/* EPC Services */}
           <div className="space-y-4">
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider font-heading border-l-2 border-amber-500 pl-2.5">
+            <h4 className="text-sm font-bold text-white uppercase tracking-wider font-heading border-l-2 border-red-500 pl-2.5">
               Core Capabilities
             </h4>
             <ul className="space-y-2.5 text-sm">
-              <li><Link to="/services#bridge" className="hover:text-amber-400 transition-colors">Bridge & Civil Construction</Link></li>
-              <li><Link to="/services#windmill" className="hover:text-amber-400 transition-colors">Windmill Tower Fabrication</Link></li>
-              <li><Link to="/services#steel" className="hover:text-amber-400 transition-colors">Heavy Steel Welding</Link></li>
-              <li><Link to="/services#fleet" className="hover:text-amber-400 transition-colors">Crawler Crane Rental</Link></li>
-              <li><Link to="/services#fleet" className="hover:text-amber-400 transition-colors">Hydraulic Excavators</Link></li>
-              <li><Link to="/resources#brochures" className="hover:text-amber-400 transition-colors">Technical Brochures</Link></li>
+              <li><Link to="/services#bridge" className="hover:text-sky-400 transition-colors">Bridge & Civil Construction</Link></li>
+              <li><Link to="/services#windmill" className="hover:text-sky-400 transition-colors">Windmill Tower Fabrication</Link></li>
+              <li><Link to="/services#steel" className="hover:text-sky-400 transition-colors">Heavy Steel Welding</Link></li>
+              <li><Link to="/services#fleet" className="hover:text-sky-400 transition-colors">Crawler Crane Rental</Link></li>
+              <li><Link to="/services#fleet" className="hover:text-sky-400 transition-colors">Hydraulic Excavators</Link></li>
+              <li><Link to="/resources#brochures" className="hover:text-sky-400 transition-colors">Technical Brochures</Link></li>
             </ul>
           </div>
 
           {/* Contact Details & Newsletter */}
           <div className="space-y-4">
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider font-heading border-l-2 border-amber-500 pl-2.5">
+            <h4 className="text-sm font-bold text-white uppercase tracking-wider font-heading border-l-2 border-red-500 pl-2.5">
               Contact & Support
             </h4>
             <div className="space-y-3 text-sm">
               <div className="flex items-start space-x-3">
-                <MapPin className="w-4 h-4 text-amber-500 shrink-0 mt-1" />
+                <MapPin className="w-4 h-4 text-sky-400 shrink-0 mt-1" />
                 <span className="text-slate-300">100 Industrial Parkway, EPC Tower, Suite 500</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Phone className="w-4 h-4 text-amber-500 shrink-0" />
+                <Phone className="w-4 h-4 text-sky-400 shrink-0" />
                 <span className="text-slate-300">+1 (800) 555-AMIGO</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail className="w-4 h-4 text-amber-500 shrink-0" />
+                <Mail className="w-4 h-4 text-sky-400 shrink-0" />
                 <span className="text-slate-300">info@amigoconnect.com</span>
               </div>
             </div>
@@ -130,7 +133,7 @@ export default function Footer({ onOpenModal }) {
             <div className="pt-2">
               <p className="text-xs text-slate-300 mb-2 font-semibold">Subscribe for Infrastructure News</p>
               {subscribed ? (
-                <div className="p-2.5 bg-emerald-500/20 text-emerald-400 rounded-lg text-xs flex items-center space-x-2">
+                <div className="p-2.5 bg-emerald-500/20 text-emerald-400 rounded-lg text-xs flex items-center space-x-2 border border-emerald-500/30">
                   <CheckCircle2 className="w-4 h-4" />
                   <span>Subscribed successfully!</span>
                 </div>
@@ -142,11 +145,11 @@ export default function Footer({ onOpenModal }) {
                     placeholder="Enter email address"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full px-3 py-2 bg-slate-900 border border-slate-800 rounded-l-lg text-xs text-white focus:outline-none focus:border-amber-500"
+                    className="w-full px-3 py-2 bg-slate-900 border border-slate-800 rounded-l-lg text-xs text-white focus:outline-none focus:border-sky-400"
                   />
                   <button
                     type="submit"
-                    className="px-3.5 py-2 bg-amber-500 hover:bg-amber-600 text-slate-950 rounded-r-lg font-bold transition-colors"
+                    className="px-3.5 py-2 bg-red-600 hover:bg-red-500 text-white rounded-r-lg font-bold transition-colors"
                   >
                     <Send className="w-3.5 h-3.5" />
                   </button>
