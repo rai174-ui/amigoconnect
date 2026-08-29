@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6, .font-heading {
+    font-family: 'Montserrat', system-ui, sans-serif;
+  }
+}
+
+/* Industrial styling utilities */
+.bg-safety-yellow {
+  background-color: #f59e0b;
+}
+
+.text-safety-yellow {
+  color: #f59e0b;
+}
+
+.border-safety-yellow {
+  border-color: #f59e0b;
+}
+
+.hover\:bg-safety-yellow-hover:hover {
+  background-color: #d97706;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f59e0b;
+}
+
+/* Smooth glassmorphic backdrop */
+.glass-panel {
+  background: rgba(30, 41, 59, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-nav {
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
