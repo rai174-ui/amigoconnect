@@ -33,14 +33,31 @@ export default function Home({ onOpenModal }) {
   const [projectTab, setProjectTab] = useState('all');
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
+  // Auto-play video on mount and handle state
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = isMuted;
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => setIsPlaying(true))
+          .catch((err) => {
+            console.log("Autoplay deferred:", err);
+            setIsPlaying(false);
+          });
+      }
+    }
+  }, [isMuted]);
+
   const togglePlay = () => {
     if (videoRef.current) {
       if (isPlaying) {
         videoRef.current.pause();
+        setIsPlaying(false);
       } else {
         videoRef.current.play();
+        setIsPlaying(true);
       }
-      setIsPlaying(!isPlaying);
     }
   };
 
@@ -195,32 +212,34 @@ export default function Home({ onOpenModal }) {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 overflow-x-hidden">
       
-      {/* ================= HERO SECTION ================= */}
+      {/* ================= HERO SECTION WITH HIGH VISIBILITY VIDEO BACKGROUND ================= */}
       <section className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
         {/* Background Video */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 overflow-hidden">
           <video
             ref={videoRef}
             autoPlay
             loop
-            muted={isMuted}
+            muted
             playsInline
-            className="w-full h-full object-cover scale-105 filter brightness-[0.6] contrast-[1.15]"
+            preload="auto"
+            className="w-full h-full object-cover scale-105 filter brightness-[0.85] contrast-[1.05]"
           >
             <source src="/videos/IntroductionVideo.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/65 to-slate-950/40"></div>
-          <div className="absolute inset-0 bg-radial-gradient from-transparent via-slate-950/50 to-slate-950/95"></div>
+          {/* Balanced gradient overlay for vivid video playback & WCAG AAA contrast */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/20"></div>
+          <div className="absolute inset-0 bg-slate-950/25"></div>
         </div>
 
         {/* Video Player Controls */}
-        <div className="absolute bottom-8 right-8 z-20 flex items-center space-x-3 bg-slate-950/80 backdrop-blur-md p-2 rounded-full border border-sky-500/20 shadow-2xl">
+        <div className="absolute bottom-8 right-8 z-20 flex items-center space-x-3 bg-slate-950/85 backdrop-blur-md p-2 rounded-full border border-sky-500/30 shadow-2xl">
           <button
             onClick={togglePlay}
             aria-label={isPlaying ? "Pause video" : "Play video"}
-            className="p-2.5 text-slate-300 hover:text-red-400 hover:bg-slate-900 rounded-full transition-colors"
+            className="p-2.5 text-slate-200 hover:text-red-400 hover:bg-slate-900 rounded-full transition-colors"
             title={isPlaying ? "Pause Video" : "Play Video"}
           >
             {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 ml-0.5" />}
@@ -229,7 +248,7 @@ export default function Home({ onOpenModal }) {
           <button
             onClick={toggleMute}
             aria-label={isMuted ? "Unmute video" : "Mute video"}
-            className="p-2.5 text-slate-300 hover:text-sky-400 hover:bg-slate-900 rounded-full transition-colors"
+            className="p-2.5 text-slate-200 hover:text-sky-400 hover:bg-slate-900 rounded-full transition-colors"
             title={isMuted ? "Unmute Audio" : "Mute Audio"}
           >
             {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
@@ -241,7 +260,7 @@ export default function Home({ onOpenModal }) {
           <div className="max-w-3xl space-y-6">
             
             {/* Status Badge */}
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 bg-red-500/10 border border-red-500/30 rounded-full backdrop-blur-md">
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 bg-red-500/20 border border-red-500/40 rounded-full backdrop-blur-md">
               <span className="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
               <span className="text-xs font-bold text-red-400 uppercase tracking-widest">
                 Premier Turnkey EPC Contractor
@@ -258,7 +277,7 @@ export default function Home({ onOpenModal }) {
             </h1>
 
             {/* Sub-headline H2 */}
-            <h2 className="text-lg sm:text-xl text-slate-300 font-normal leading-relaxed">
+            <h2 className="text-lg sm:text-xl text-slate-200 font-normal leading-relaxed drop-shadow-md">
               Amigo Connect is your premier EPC partner specializing in monumental bridge construction, precision windmill fabrication, and heavy machinery rentals.
             </h2>
 
@@ -266,7 +285,7 @@ export default function Home({ onOpenModal }) {
             <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
               <Link
                 to="/services"
-                className="px-8 py-4 bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white font-black text-base rounded-xl shadow-xl shadow-red-600/25 hover:shadow-red-600/40 transition-all transform hover:-translate-y-1 flex items-center justify-center space-x-3 group border border-red-400/30"
+                className="px-8 py-4 bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white font-black text-base rounded-xl shadow-xl shadow-red-600/30 hover:shadow-red-600/50 transition-all transform hover:-translate-y-1 flex items-center justify-center space-x-3 group border border-red-400/30"
               >
                 <span>Explore Our Services</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -274,7 +293,7 @@ export default function Home({ onOpenModal }) {
               
               <Link
                 to="/resources"
-                className="px-8 py-4 bg-slate-900/90 hover:bg-slate-850 text-sky-300 font-bold text-base rounded-xl border border-sky-500/30 backdrop-blur-md transition-all flex items-center justify-center space-x-2"
+                className="px-8 py-4 bg-slate-950/90 hover:bg-slate-900 text-sky-300 font-bold text-base rounded-xl border border-sky-500/40 backdrop-blur-md transition-all flex items-center justify-center space-x-2"
               >
                 <Truck className="w-5 h-5 text-sky-400" />
                 <span>View Our Machinery Fleet</span>
@@ -282,7 +301,7 @@ export default function Home({ onOpenModal }) {
             </div>
 
             {/* Quick Metrics Bar */}
-            <div className="pt-8 border-t border-slate-800/80 grid grid-cols-3 gap-4 text-slate-300 text-xs">
+            <div className="pt-8 border-t border-slate-800/80 grid grid-cols-3 gap-4 text-slate-200 text-xs">
               <div className="flex items-center space-x-2">
                 <ShieldCheck className="w-5 h-5 text-sky-400 shrink-0" />
                 <span>ISO 9001 & ISO 45001 Certified</span>
