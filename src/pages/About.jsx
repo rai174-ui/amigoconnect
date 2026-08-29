@@ -93,15 +93,17 @@ export default function About({ onOpenModal }) {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               
               <div className="lg:col-span-4 text-center lg:text-left space-y-4">
-                <img
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80"
-                  alt="Director's Portrait - Amigo Connect Executive"
-                  className="w-48 h-48 mx-auto lg:mx-0 rounded-2xl object-cover border-2 border-red-500/40 shadow-xl"
-                />
+                <div className="w-48 h-48 mx-auto lg:mx-0 rounded-2xl overflow-hidden border-2 border-red-500/40 shadow-xl bg-slate-900">
+                  <img
+                    src="/images/padam.jpg"
+                    alt="Padam - Managing Director & CEO"
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
                 <div>
-                  <h3 className="text-xl font-bold text-white font-heading">Arthur Pendelton</h3>
+                  <h3 className="text-xl font-bold text-white font-heading">Padam</h3>
                   <p className="text-xs text-sky-400 font-semibold">Managing Director & CEO</p>
-                  <p className="text-xs text-slate-400">30+ Years in Infrastructure EPC</p>
+                  <p className="text-xs text-slate-400">Strategic Leadership & Heavy EPC Division</p>
                 </div>
               </div>
 

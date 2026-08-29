@@ -33,19 +33,28 @@ export default function Home({ onOpenModal }) {
   const [projectTab, setProjectTab] = useState('all');
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
-  // Auto-play video on mount and handle state
+  // Guaranteed video autoplay handler
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.muted = isMuted;
-      const playPromise = videoRef.current.play();
-      if (playPromise !== undefined) {
-        playPromise
+    const video = videoRef.current;
+    if (video) {
+      video.defaultMuted = true;
+      video.muted = isMuted;
+
+      const attemptPlay = () => {
+        video.play()
           .then(() => setIsPlaying(true))
           .catch((err) => {
-            console.log("Autoplay deferred:", err);
+            console.warn("Autoplay deferred by browser policy:", err);
             setIsPlaying(false);
           });
-      }
+      };
+
+      video.addEventListener('canplaythrough', attemptPlay);
+      attemptPlay();
+
+      return () => {
+        video.removeEventListener('canplaythrough', attemptPlay);
+      };
     }
   }, [isMuted]);
 
@@ -55,8 +64,9 @@ export default function Home({ onOpenModal }) {
         videoRef.current.pause();
         setIsPlaying(false);
       } else {
-        videoRef.current.play();
-        setIsPlaying(true);
+        videoRef.current.play()
+          .then(() => setIsPlaying(true))
+          .catch(err => console.error(err));
       }
     }
   };
@@ -212,29 +222,44 @@ export default function Home({ onOpenModal }) {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 overflow-x-hidden">
       
-      {/* ================= HERO SECTION WITH HIGH VISIBILITY VIDEO BACKGROUND ================= */}
+      {/* ================= HERO SECTION WITH VIDEO BACKGROUND ================= */}
       <section className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
         {/* Background Video */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <video
             ref={videoRef}
+            src="/videos/IntroductionVideo.mp4"
             autoPlay
             loop
             muted
             playsInline
             preload="auto"
-            className="w-full h-full object-cover scale-105 filter brightness-[0.85] contrast-[1.05]"
+            className="w-full h-full object-cover scale-105 filter brightness-[0.88] contrast-[1.05]"
           >
             <source src="/videos/IntroductionVideo.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           
-          {/* Balanced gradient overlay for vivid video playback & WCAG AAA contrast */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/20"></div>
-          <div className="absolute inset-0 bg-slate-950/25"></div>
+          {/* Transparent Vignette Overlay for WCAG Text Contrast */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/35 to-slate-950/20"></div>
+          <div className="absolute inset-0 bg-slate-950/20"></div>
         </div>
 
-        {/* Video Player Controls */}
+        {/* Video Autoplay Fallback Trigger Overlay */}
+        {!isPlaying && (
+          <button
+            onClick={togglePlay}
+            className="absolute inset-0 z-10 flex items-center justify-center bg-slate-950/30 backdrop-blur-xs group"
+            title="Click to play background video"
+          >
+            <div className="p-5 bg-red-600/90 text-white rounded-full shadow-2xl group-hover:scale-110 transition-transform flex items-center space-x-2 border border-white/20">
+              <Play className="w-8 h-8 fill-current ml-1" />
+              <span className="text-sm font-bold pr-2">Play Infrastructure Video</span>
+            </div>
+          </button>
+        )}
+
+        {/* Video Player Floating Controls */}
         <div className="absolute bottom-8 right-8 z-20 flex items-center space-x-3 bg-slate-950/85 backdrop-blur-md p-2 rounded-full border border-sky-500/30 shadow-2xl">
           <button
             onClick={togglePlay}

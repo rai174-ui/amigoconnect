@@ -45,14 +45,14 @@ export default function Header({ onOpenModal }) {
               <MapPin className="w-3.5 h-3.5 text-sky-400" />
               <span>EPC Tower, Suite 500, Industrial Zone</span>
             </span>
-            <span className="flex items-center space-x-1.5">
+            <a href="tel:+919971299631" className="flex items-center space-x-1.5 hover:text-white transition-colors">
               <Phone className="w-3.5 h-3.5 text-sky-400" />
-              <span>+1 (800) 555-AMIGO</span>
-            </span>
-            <span className="flex items-center space-x-1.5">
+              <span>+91 99712 99631</span>
+            </a>
+            <a href="mailto:info@amigoconnect.com" className="flex items-center space-x-1.5 hover:text-white transition-colors">
               <Mail className="w-3.5 h-3.5 text-sky-400" />
               <span>info@amigoconnect.com</span>
-            </span>
+            </a>
           </div>
 
           <div className="flex items-center space-x-4">
@@ -72,7 +72,7 @@ export default function Header({ onOpenModal }) {
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           
-          {/* Logo with official image asset */}
+          {/* Logo */}
           <Link to="/" onClick={closeMobileMenu} className="flex items-center space-x-3 group">
             <div className="p-1 bg-slate-900 rounded-xl border border-slate-800 group-hover:border-red-500/50 transition-colors shadow-lg">
               <img

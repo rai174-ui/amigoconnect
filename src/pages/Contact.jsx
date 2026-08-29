@@ -108,10 +108,10 @@ export default function Contact({ onOpenModal }) {
                     <Phone className="w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="text-base font-bold text-white font-heading">Direct Phone Lines</h4>
+                    <h4 className="text-base font-bold text-white font-heading">Direct Phone Line</h4>
                     <p className="text-xs text-slate-300 mt-1">
-                      Toll Free: +1 (800) 555-AMIGO<br />
-                      Dispatch Hotline: +1 (555) 019-2834
+                      Phone / WhatsApp: <a href="tel:+919971299631" className="text-sky-300 font-bold hover:underline">+91 99712 99631</a><br />
+                      24/7 Heavy Equipment Dispatch Desk Active
                     </p>
                   </div>
                 </div>
@@ -123,8 +123,8 @@ export default function Contact({ onOpenModal }) {
                   <div>
                     <h4 className="text-base font-bold text-white font-heading">Electronic Mail</h4>
                     <p className="text-xs text-slate-300 mt-1">
-                      Inquiries: info@amigoconnect.com<br />
-                      Vendor Relations: vendors@amigoconnect.com
+                      Inquiries: <a href="mailto:info@amigoconnect.com" className="hover:underline">info@amigoconnect.com</a><br />
+                      Vendor Relations: <a href="mailto:vendors@amigoconnect.com" className="hover:underline">vendors@amigoconnect.com</a>
                     </p>
                   </div>
                 </div>

@@ -121,11 +121,11 @@ export default function Footer({ onOpenModal }) {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-4 h-4 text-sky-400 shrink-0" />
-                <span className="text-slate-300">+1 (800) 555-AMIGO</span>
+                <a href="tel:+919971299631" className="text-slate-300 hover:text-white transition-colors">+91 99712 99631</a>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-4 h-4 text-sky-400 shrink-0" />
-                <span className="text-slate-300">info@amigoconnect.com</span>
+                <a href="mailto:info@amigoconnect.com" className="text-slate-300 hover:text-white transition-colors">info@amigoconnect.com</a>
               </div>
             </div>
 
