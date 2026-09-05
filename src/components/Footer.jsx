@@ -162,8 +162,12 @@ export default function Footer({ onOpenModal }) {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-400 gap-4">
-          <div>
-            © 2026 <strong className="text-white">Amigo Connect</strong>. All Rights Reserved. ISO 9001:2015 & ISO 45001:2018 Certified EPC Contractor.
+          <div className="flex flex-col sm:flex-row items-center space-y-1 sm:space-y-0 sm:space-x-3 text-center sm:text-left">
+            <span>© 2026 <strong className="text-white">Amigo Connect</strong>. All Rights Reserved. ISO 9001:2015 & ISO 45001:2018 Certified EPC Contractor.</span>
+            <span className="hidden sm:inline text-slate-700">|</span>
+            <span className="text-slate-400">
+              Powered by <strong className="text-sky-400 font-semibold">Zerolimit Automation</strong>
+            </span>
           </div>
           <div className="flex items-center space-x-6">
             <a href="#" className="hover:text-slate-300 transition-colors">Privacy Policy</a>
